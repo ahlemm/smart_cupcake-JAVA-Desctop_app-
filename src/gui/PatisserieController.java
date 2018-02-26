@@ -7,8 +7,9 @@ package gui;
 
 import entite.Patisserie;
 import entite.User;
+import java.io.File;
 import service.ServicePatisserie;
-import service.ServiceUser; 
+import service.ServiceUser;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -29,24 +30,29 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.SortEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import static utile.Utils.patissier;
+
 /**
  * FXML Controller class
  *
  * @author Mdin Ahlem
  */
 public class PatisserieController implements Initializable {
-        ObservableList listPat = FXCollections.observableArrayList();
 
+    ObservableList listPat = FXCollections.observableArrayList();
 
     @FXML
     private Button patisserie;
@@ -61,6 +67,8 @@ public class PatisserieController implements Initializable {
     @FXML
     private TableColumn<?, ?> nom_patisserie;
     @FXML
+    private TableColumn<?, ?> spetialite;
+    @FXML
     private TableColumn<?, ?> info_patisserie;
     @FXML
     private TableColumn<?, ?> adresse_patisserie;
@@ -68,13 +76,20 @@ public class PatisserieController implements Initializable {
     private TableColumn<?, ?> patissier;
     @FXML
     private TableView<?> listPatisserie;
-    private Object activite;
+    
     @FXML
     private TextField activite22;
-    @FXML
-    private TableColumn<?, ?> spetialite;
+   
     @FXML
     private Label label5;
+    @FXML
+    private AnchorPane browse1;
+    @FXML
+    private Button voir_Map;
+    @FXML
+    private Button page_précédente1;
+    @FXML
+    private ImageView retour33;
 
     /**
      * Initializes the controller class.
@@ -82,22 +97,21 @@ public class PatisserieController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void getAllPatisseries(ActionEvent event) {
         id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
-		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		spetialite.setCellValueFactory(new PropertyValueFactory<>("activite"));
-		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
-		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
-                patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
+        nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
+        spetialite.setCellValueFactory(new PropertyValueFactory<>("activite"));
+        info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
+        adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
+        patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
 
-                
-                     ServicePatisserie sp = new ServicePatisserie();
- listPat= sp. getAllPatisseries();
-       listPatisserie.setItems(listPat);
-       label5.setText("");
+        ServicePatisserie sp = new ServicePatisserie();
+        listPat = sp.getAllPatisserieApprouved();
+        listPatisserie.setItems(listPat);
+        label5.setText("");
     }
 //
 //    private void searchPatisserie(ActionEvent event) {
@@ -121,25 +135,47 @@ public class PatisserieController implements Initializable {
 
     @FXML
     private void searchPatisserie(ActionEvent event) {
-          ServicePatisserie sp = new ServicePatisserie();
-       listPatisserie.setEditable(true);
+        ServicePatisserie sp = new ServicePatisserie();
+        listPatisserie.setEditable(true);
+
+        id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
+        nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
+        spetialite.setCellValueFactory(new PropertyValueFactory<>("activite"));
+        info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
+        adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
+        patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
+
+        if (nom2.getText().equals("") && activite22.getText().equals("") && adresse2.getText().equals("")) {
+            label5.setText("veuillez remplir au minimum un champ de recherche");
+        } else {
+            listPat = sp.searchPatisserie(nom2.getText(), activite22.getText(), adresse2.getText());
+            listPatisserie.setItems(listPat);
+        }
+
+    }
+
+    @FXML
+    private void voir_map(ActionEvent event) throws IOException {
         
-          id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
-		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		spetialite.setCellValueFactory(new PropertyValueFactory<>("activite"));
-		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
-		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
-                  patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
-
-                          if (nom2.getText().equals("") && activite22.getText().equals("")&& adresse2.getText().equals(""))
-                          { label5.setText("veuillez remplir au minimum un champ de recherche");}
-            
-
-                          else { listPat= sp.searchPatisserie(nom2.getText(), activite22.getText(), adresse2.getText() );
-       listPatisserie.setItems(listPat);}
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("Gmaps.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
+        
         
     }
+
+    @FXML
+    private void page_précédente1(ActionEvent event) throws IOException {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuClient.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
     }
 
-
-
+ 
+}

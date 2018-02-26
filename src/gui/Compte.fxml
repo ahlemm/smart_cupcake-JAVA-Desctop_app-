@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="553.0" prefWidth="742.0" style="-fx-background-color: #FCFAE1;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CompteController">
+   <children>
+      <Label layoutX="201.0" layoutY="22.0" prefHeight="46.0" prefWidth="340.0" text="           Mon Compte" textFill="INDIANRED">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Label>
+      <Pane layoutX="57.0" layoutY="85.0" prefHeight="353.0" prefWidth="642.0" style="-fx-background-color: #FA8072 #F0808 #F08080;">
+         <children>
+            <Label layoutX="21.0" layoutY="46.0" prefHeight="17.0" prefWidth="87.0" text="Nom" textFill="#862727">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font></Label>
+            <Label layoutX="18.0" layoutY="106.0" prefHeight="17.0" prefWidth="53.0" text="prenom" textFill="#862727">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font></Label>
+            <Label layoutX="20.0" layoutY="169.0" text="Email" textFill="#862727">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font></Label>
+            <Label layoutX="7.0" layoutY="292.0" text="Numero de Telephone" textFill="#862727">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font></Label>
+            <Label layoutX="371.0" layoutY="131.0" text="login" textFill="#862727">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font></Label>
+            <Label layoutX="19.0" layoutY="231.0" text="Adresse" textFill="#862727">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font></Label>
+            <TextField fx:id="nomC" layoutX="172.0" layoutY="43.0" />
+            <TextField fx:id="prenomC" layoutX="172.0" layoutY="102.0" />
+            <TextField fx:id="emailC" layoutX="172.0" layoutY="165.0" />
+            <TextField fx:id="adresseC" layoutX="172.0" layoutY="227.0" />
+            <TextField fx:id="numC" layoutX="172.0" layoutY="288.0" />
+            <TextField fx:id="loginC" layoutX="460.0" layoutY="127.0" />
+            <DatePicker fx:id="dateC" layoutX="460.0" layoutY="71.0" />
+            <Label layoutX="330.0" layoutY="75.0" text="date de naissance" textFill="#862727">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font></Label>
+            <Button fx:id="BtnModC" layoutX="471.0" layoutY="236.0" mnemonicParsing="false" onAction="#modifierCompte" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #cd5c5c;" text="Modifier" textFill="#fcfae1">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font></Button>
+            <Button layoutX="415.0" layoutY="288.0" mnemonicParsing="false" onAction="#modifierMotDePasse" prefHeight="35.0" prefWidth="192.0" style="-fx-background-color: #cd5c5c;" text="Modifier Mot de passe" textFill="#fcfae1">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font></Button>
+         </children></Pane>
+      <Button layoutX="554.0" layoutY="27.0" mnemonicParsing="false" onAction="#deconnecter" prefHeight="35.0" prefWidth="131.0" style="-fx-background-color: #cd5c5c;" text="deconecter" textFill="#fcfae1">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font></Button>
+      <Button layoutX="40.0" layoutY="27.0" mnemonicParsing="false" onAction="#retourCompte" prefHeight="35.0" prefWidth="174.0" style="-fx-background-color: #cd5c5c;" text="Page precedente" textFill="#fcfae1">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font></Button>
+      <Button layoutX="268.0" layoutY="478.0" mnemonicParsing="false" onAction="#supprimerC" prefHeight="35.0" prefWidth="220.0" style="-fx-background-color: #cd5c5c;" text="supprimer mon compte " textFill="#fcfae1">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

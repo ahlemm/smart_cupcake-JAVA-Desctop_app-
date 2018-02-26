@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -33,9 +34,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -51,7 +54,6 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
     private TableColumn<?, ?> id_patisserie;
     @FXML
     private TableColumn<?, ?> nom_patisserie;
-    @FXML
     private TableColumn<?, ?> activite;
     @FXML
     private TableColumn<?, ?> info_patisserie;
@@ -93,6 +95,12 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
     private Button getby_id_pat;
     @FXML
     private Label label3;
+    @FXML
+    private Button page_précédente;
+    @FXML
+    private TableColumn<?, ?> activite1;
+    @FXML
+    private ImageView pp;
 
     /**
      * Initializes the controller class.
@@ -109,7 +117,13 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
                
 //loadPatisserieList();
                 //initChamps();
-	}	
+	}
+   
+   
+   
+   
+   
+   
 	
 @FXML
 	private void getAllPatisseries(){
@@ -117,13 +131,13 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
 		 
 		id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
 		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		activite.setCellValueFactory(new PropertyValueFactory<>("activite"));
+		activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
 		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
 		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
                 id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
 
                 
-                     ServicePatisserie sp = new ServicePatisserie();
+   ServicePatisserie sp = new ServicePatisserie();
  listPat= sp. getAllPatisseries();
        listPatisserie.setItems(listPat);
        label3.setText("" ) ;
@@ -136,7 +150,7 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
 		 
 		id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
 		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		activite.setCellValueFactory(new PropertyValueFactory<>("activite"));
+		activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
 		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
 		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
                id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
@@ -152,7 +166,7 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
              
              id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
 		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		activite.setCellValueFactory(new PropertyValueFactory<>("activite"));
+		activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
 		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
 		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
                id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
@@ -170,7 +184,7 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
              
              id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
 		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		activite.setCellValueFactory(new PropertyValueFactory<>("activite"));
+		activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
 		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
 		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
                   id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
@@ -196,6 +210,8 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
            listPatisserie.getItems().remove(selectedIndex);
               sp.supprimer(p.getId_patisserie());
                label3.setText("patisserie supprimée" ) ;
+                PauseTransition pauseTransition = new PauseTransition(Duration.seconds(2));
+                 pauseTransition.setOnFinished(i -> label3.setText(""));
             }
        else{
            Alert alert= new Alert(AlertType.WARNING);
@@ -228,12 +244,21 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
             
 		getAllPatisseries();
                  label3.setText("modification avec succées" ) ;
+                 PauseTransition pauseTransition = new PauseTransition(Duration.seconds(1));
+ pauseTransition.setOnFinished(x -> label3.setText(""));
+ pauseTransition.play();
+               nom_pat.setText("");
+               activite_pat.setText("");
+               info_pat.setText("");
+               adresse_pat.setText("");
+
+               
             }}
            else{
            Alert alert= new Alert(AlertType.WARNING);
-          alert.setTitle("Pas de Selection");
-           alert.setHeaderText("Vous n'avez pas choisi une patisserie");
-           alert.setContentText("Veuillez selectionnner une patisserie ");
+              alert.setTitle("Pas de Selection");
+           alert.setHeaderText("vous n'avez pas sélectionner une Patisserie !");
+           alert.setContentText("veuillez sélectionner une patisserie dans la table");
            alert.showAndWait(); }
          
        
@@ -274,26 +299,26 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
         
     
  ServicePatisserie sp = new ServicePatisserie();
-        int x ;
+      //  int x ;
        listPatisserie.setEditable(true);
        int selectedIndex=listPatisserie.getSelectionModel().getSelectedIndex();
      
        Patisserie p = listPatisserie.getSelectionModel().getSelectedItem();
-  x=p.getId_patisserie();
+  //x=p.getId_patisserie();
       
   if(selectedIndex >=0) {
            listPatisserie.getItems().remove(selectedIndex);
             
 		
-              sp.approuver(x);
+              sp.approuver(p.getId_patisserie());
                label3.setText("" ) ;
                 getAllPatisserieApprouved();
             }
        else{
            Alert alert= new Alert(AlertType.WARNING);
-           alert.setTitle("No Selection");
-           alert.setHeaderText("No Patisserie Selected");
-           alert.setContentText("Please select a patisserie in the table");
+               alert.setTitle("Pas de Selection");
+           alert.setHeaderText("vous n'avez pas sélectionner une Patisserie !");
+           alert.setContentText("veuillez sélectionner une patisserie dans la table");
            alert.showAndWait();
          
        }
@@ -304,26 +329,26 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
     private void etudier(ActionEvent event) {
         
         ServicePatisserie sp = new ServicePatisserie();
-        int x ;
+        //int x ;
        listPatisserie.setEditable(true);
        int selectedIndex=listPatisserie.getSelectionModel().getSelectedIndex();
      
        Patisserie p = listPatisserie.getSelectionModel().getSelectedItem();
-  x=p.getId_patisserie();
+  //x=p.getId_patisserie();
       
   if(selectedIndex >=0) {
            listPatisserie.getItems().remove(selectedIndex);
             
 		
-              sp.etudier(x);
+              sp.etudier(p.getId_patisserie());
                 getAllPatisserieàEtudier(); 
                 label3.setText("" ) ;
             }
        else{
            Alert alert= new Alert(AlertType.WARNING);
-           alert.setTitle("No Selection");
-           alert.setHeaderText("No Patisserie Selected");
-           alert.setContentText("Please select a patisserie in the table");
+           alert.setTitle("Pas de Selection");
+           alert.setHeaderText("vous n'avez pas sélectionner une Patisserie !");
+           alert.setContentText("veuillez sélectionner une patisserie dans la table");
            alert.showAndWait();
          
        }
@@ -341,7 +366,7 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
        
         id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
 		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		activite.setCellValueFactory(new PropertyValueFactory<>("activite"));
+		activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
 		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
 		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
                   id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
@@ -349,7 +374,7 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
   // x=Integer.parseInt(rechercher.getText())  ;      
    if(rechercher.getText().equals("")) {label3.setText("veuillez selectionnez id(patisserie/patissier)");}
   else 
-   { listPat= sp. getPatisseriesByidPatissier(Integer.parseInt(rechercher.getText()));
+   { listPat= sp.getPatisseriesByidPatissier(Integer.parseInt(rechercher.getText()));
        listPatisserie.setItems(listPat);
         label3.setText("" ) ;}
 //       int selectedIndex=listPatisserie.getSelectionModel().getSelectedIndex();
@@ -371,16 +396,30 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
         
     }
 
+    
+
     @FXML
-    private void getPatisserieById(ActionEvent event) {
+    private void page_précédente(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuAdmin.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
         
-         ServicePatisserie sp = new ServicePatisserie();
+    }
+
+    @FXML
+    private void search_nom(ActionEvent event) {
+        
+        
+           ServicePatisserie sp = new ServicePatisserie();
         int x ;
        listPatisserie.setEditable(true);
         
           id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
 		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		activite.setCellValueFactory(new PropertyValueFactory<>("activite"));
+		activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
 		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
 		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
                   id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
@@ -388,13 +427,12 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
   // x=Integer.parseInt(rechercher.getText())  ;             
     if(rechercher.getText().equals("")) {label3.setText("veuillez selectionnez id(patisserie/patissier)");}
 
-    else {listPat= sp. getPatisserieById(Integer.parseInt(rechercher.getText()) );
+    else {listPat= sp.search_nom(rechercher.getText() );
        listPatisserie.setItems(listPat);
         label3.setText("" ) ;
-        
-    }}
+    }
 }
-        
+}  
         
         
         

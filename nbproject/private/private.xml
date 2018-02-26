@@ -4,17 +4,49 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/test/Test.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/MenuClient.fxml</file>
             <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/AffichageController.java</file>
             <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/service/ServiceUser.java</file>
-            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/utile/DataSource.java</file>
-            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/PatisserieController.java</file>
-            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/AjoutPat.fxml</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/MenuAdminController.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/MotDePasse.fxml</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/InscriptionUserController.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/entite/Panier.java</file>
             <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/AjoutPatController.java</file>
-            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/service/ServicePatisserie.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/AjoutPat.fxml</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/MenuAdmin.fxml</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/MenuClientController.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/ListCommande.fxml</file>
             <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/patisserie.fxml</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/service/ServiceCommande.java</file>
             <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/entite/User.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/entite/Produit.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/GMapMouseEvent.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/Compte.fxml</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/ListCommandeController.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/Authentification.fxml</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/CompteController.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/ProduitGUIController.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/PatisserieController.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/utile/DataSource.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/service/ServiceProduit.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/GmapsController.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/service/ServicePanier.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/entite/Commande.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/MenuPatissier.fxml</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/Googlemaps.fxml</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/GooglemapsController.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/MenuPatissierController.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/service/ServicePatisserie.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/utile/Config.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/Gmaps.fxml</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/InscriptionUser.fxml</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/vo/PanierVo.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/AuthentificationController.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/CommandeController.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/Commande.fxml</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/MotDePasseController.java</file>
             <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/affichage.fxml</file>
-            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/utile/Utils.java</file>
+            <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/ProduitGUI.fxml</file>
             <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/entite/Patisserie.java</file>
             <file>file:/C:/Users/Mdin%20Ahlem/Documents/NetBeansProjects/gestionpat/src/gui/FirstPage.java</file>
         </group>

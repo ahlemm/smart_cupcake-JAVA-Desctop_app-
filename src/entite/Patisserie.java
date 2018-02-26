@@ -26,9 +26,23 @@ public class Patisserie {
     private String adresse_patisserie;
     private int etat_patisserie;
     private User patissier;
-    
+    private String photo_patisserie;
+  
 
     public Patisserie() {
+    }
+
+    public Patisserie(int id_patisserie, String nom_patisserie, String acitivite, String info_patisserie, Double longitude, Double latitude, String adresse_patisserie, int etat_patisserie, User patissier, String photo_patisserie) {
+        this.id_patisserie = id_patisserie;
+        this.nom_patisserie = nom_patisserie;
+        this.acitivite = acitivite;
+        this.info_patisserie = info_patisserie;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.adresse_patisserie = adresse_patisserie;
+        this.etat_patisserie = etat_patisserie;
+        this.patissier = patissier;
+        this.photo_patisserie = photo_patisserie;
     }
 
     public Patisserie(int id_patisserie, String nom_patisserie, String acitivite, String info_patisserie, Double longitude, Double latitude, String adresse_patisserie, int etat_patisserie) {
@@ -60,6 +74,20 @@ public class Patisserie {
         this.latitude = latitude;
         this.adresse_patisserie = adresse_patisserie;
     }
+
+    public Patisserie(String nom_patisserie, String acitivite, String info_patisserie, Double longitude, Double latitude, String adresse_patisserie, User patissier, String photo_patisserie) {
+        this.nom_patisserie = nom_patisserie;
+        this.acitivite = acitivite;
+        this.info_patisserie = info_patisserie;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.adresse_patisserie = adresse_patisserie;
+        this.patissier = patissier;
+        this.photo_patisserie = photo_patisserie;
+    }
+    
+    
+    
 
 //    public Patisserie(String text, String text0, String text1, double parseDouble, double parseDouble0, String text2) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -139,8 +167,10 @@ public class Patisserie {
 
     @Override
     public String toString() {
-        return "Patisserie{" + "id_patisserie=" + id_patisserie + ", nom_patisserie=" + nom_patisserie + ", acitivite=" + acitivite + ", info_patisserie=" + info_patisserie + ", longitude=" + longitude + ", latitude=" + latitude + ", adresse_patisserie=" + adresse_patisserie + ", etat_patisserie=" + etat_patisserie + ", patissier=" + patissier + '}';
+        return "Patisserie{" + "id_patisserie=" + id_patisserie + ", nom_patisserie=" + nom_patisserie + ", acitivite=" + acitivite + ", info_patisserie=" + info_patisserie + ", longitude=" + longitude + ", latitude=" + latitude + ", adresse_patisserie=" + adresse_patisserie + ", etat_patisserie=" + etat_patisserie + ", patissier=" + patissier + ", photo_patisserie=" + photo_patisserie + '}';
     }
+
+   
 
     public Patisserie(String nom_patisserie, String acitivite, String info_patisserie, Double longitude, Double latitude, String adresse_patisserie, int etat_patisserie, User patissier) {
         this.nom_patisserie = nom_patisserie;
@@ -173,6 +203,18 @@ public class Patisserie {
         this.latitude = latitude;
         this.adresse_patisserie = adresse_patisserie;
         this.patissier = patissier;
+    }
+
+    public String getPhoto_patisserie() {
+        return photo_patisserie;
+    }
+
+    public void setPhoto_patisserie(String photo_patisserie) {
+        this.photo_patisserie = photo_patisserie;
+    }
+
+    public void getPhoto_patisserie(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    

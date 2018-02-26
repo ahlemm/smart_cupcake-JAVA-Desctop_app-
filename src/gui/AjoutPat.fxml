@@ -2,42 +2,71 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="updatePatisserie" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: ajout.jpg;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="gui.AjoutPatController">
+<AnchorPane id="AnchorPane" fx:id="updatePatisserie" prefHeight="588.0" prefWidth="763.0" style="-fx-background-image: ajout.jpg; -fx-background-color: ffffff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AjoutPatController">
     <children>
-      <TextField id="nom_patisserie" fx:id="nom_pat" layoutX="476.0" layoutY="47.0" prefHeight="16.0" prefWidth="103.0" style="-fx-background-insets: #9a7272;" />
-      <TextField id="activite" fx:id="activite_pat" layoutX="476.0" layoutY="86.0" prefHeight="5.0" prefWidth="103.0" />
-      <TextField id="longitude" fx:id="longitude_pat" layoutX="479.0" layoutY="160.0" prefHeight="25.0" prefWidth="103.0" />
-      <TextField id="info_patisserie" fx:id="info_pat" layoutX="476.0" layoutY="124.0" prefHeight="17.0" prefWidth="103.0" />
-      <TextField id="latitude" fx:id="latitude_pat" layoutX="476.0" layoutY="197.0" prefHeight="25.0" prefWidth="103.0" />
-      <Text fx:id="Nom" fill="#846a9e" layoutX="425.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom" />
-      <Text fill="#846a9e" layoutX="424.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="longitude" />
-      <Text fill="#846a9e" layoutX="427.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="info" />
-      <Text fill="#846a9e" layoutX="423.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="spetialite" />
-      <Text fill="#846a9e" layoutX="424.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="latitude" />
-      <Text fill="#846a9e" layoutX="425.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="adresse" wrappingWidth="102.99999117851257" />
-      <Button fx:id="valider" layoutX="465.0" layoutY="280.0" mnemonicParsing="false" onAction="#ajouterPatisserie" text="ajouter" textFill="#9a7272" />
-      <TextField id="adresse_patisserie" fx:id="adresse_pat" layoutX="476.0" layoutY="233.0" prefHeight="17.0" prefWidth="103.0" />
-      <Button fx:id="modifier" layoutX="531.0" layoutY="280.0" mnemonicParsing="false" onAction="#updatePatisserie1" prefHeight="0.0" prefWidth="61.0" text="modifier" textFill="#9a7272" />
-      <TableView fx:id="listPatisserie1" layoutX="14.0" layoutY="28.0" prefHeight="217.0" prefWidth="395.0">
+      <TextField id="nom_patisserie" fx:id="nom_pat" layoutX="619.0" layoutY="268.0" prefHeight="16.0" prefWidth="103.0" style="-fx-background-insets: #9a7272;" />
+      <TextField id="activite" fx:id="activite_pat" layoutX="619.0" layoutY="298.0" prefHeight="5.0" prefWidth="103.0" />
+      <TextField id="longitude" fx:id="longitude_pat" layoutX="619.0" layoutY="356.0" prefHeight="25.0" prefWidth="103.0" />
+      <TextField id="info_patisserie" fx:id="info_pat" layoutX="619.0" layoutY="327.0" prefHeight="17.0" prefWidth="103.0" />
+      <TextField id="latitude" fx:id="latitude_pat" layoutX="619.0" layoutY="389.0" prefHeight="25.0" prefWidth="103.0" />
+      <Text fx:id="Nom" fill="#846a9e" layoutX="568.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom" />
+      <Text fill="#846a9e" layoutX="556.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="longitude" />
+      <Text fill="#846a9e" layoutX="571.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="info" />
+      <Text fill="#846a9e" layoutX="557.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="spetialite" />
+      <Text fill="#846a9e" layoutX="561.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="latitude" />
+      <Text fill="#846a9e" layoutX="561.0" layoutY="444.0" strokeType="OUTSIDE" strokeWidth="0.0" text="adresse" wrappingWidth="102.99999117851257" />
+      <Button fx:id="valider" layoutX="535.0" layoutY="470.0" mnemonicParsing="false" onAction="#ajouterPatisserie" text="ajouter" textFill="#9a7272" />
+      <TextField id="adresse_patisserie" fx:id="adresse_pat" layoutX="619.0" layoutY="427.0" prefHeight="17.0" prefWidth="103.0" />
+      <Button fx:id="modifier" layoutX="598.0" layoutY="470.0" mnemonicParsing="false" onAction="#updatePatisserie1" prefHeight="0.0" prefWidth="61.0" text="modifier" textFill="#9a7272" />
+      <TableView fx:id="listPatisserie1" layoutX="53.0" layoutY="114.0" prefHeight="154.0" prefWidth="479.0">
         <columns>
           <TableColumn fx:id="id_patisserie" prefWidth="70.0" text="id" />
             <TableColumn fx:id="nom_patisserie" prefWidth="93.0" text="nom" />
           <TableColumn fx:id="activite" prefWidth="75.0" text="spetialite" />
-            <TableColumn fx:id="info_patisserie" prefWidth="75.0" text="info" />
-            <TableColumn fx:id="adresse_patisserie" text="adresse" />
-            <TableColumn fx:id="id_patissier" prefWidth="75.0" text="patissier" />
+            <TableColumn fx:id="info_patisserie" prefWidth="132.0" text="info" />
+            <TableColumn fx:id="adresse_patisserie" prefWidth="109.0" text="adresse" />
+            <TableColumn fx:id="id_patissier" prefWidth="148.0" text="patissier" visible="false" />
         </columns>
       </TableView>
-      <Button fx:id="mes_patisserie" layoutX="76.0" layoutY="268.0" mnemonicParsing="false" onAction="#getPatisseriesByidPatissier" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #f1e0ed;" text="mes patisseries" textFill="#9a7272" />
-      <Button fx:id="supprimer" layoutX="215.0" layoutY="268.0" mnemonicParsing="false" onAction="#supprimer1" prefHeight="25.0" prefWidth="76.0" text="supprimer" textFill="#9a7272" />
+      <Button fx:id="mes_patisserie" layoutX="174.0" layoutY="290.0" mnemonicParsing="false" onAction="#getPatisseriesByidPatissier" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #f1e0ed;" text="mes patisseries" textFill="#9a7272" />
+      <Button fx:id="supprimer" layoutX="292.0" layoutY="290.0" mnemonicParsing="false" onAction="#supprimer1" prefHeight="25.0" prefWidth="76.0" text="supprimer" textFill="#9a7272" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Label fx:id="label" layoutX="414.0" layoutY="318.0" prefHeight="25.0" prefWidth="187.0" text="pas d'ajout,vérifier vos parametres" textFill="#4c2472" />
-      <Label fx:id="label1" layoutX="128.0" layoutY="310.0" prefHeight="17.0" prefWidth="140.0" />
+      <Label fx:id="label" layoutX="535.0" layoutY="502.0" prefHeight="25.0" prefWidth="187.0" text="pas d'ajout,vérifier vos parametres" textFill="#4c2472" />
+      <Label fx:id="label1" layoutX="179.0" layoutY="337.0" prefHeight="38.0" prefWidth="196.0" />
+      <Button fx:id="browse" layoutX="22.0" layoutY="414.0" mnemonicParsing="false" onAction="#addpicture" text="ajouter photo" textFill="#9a7272" />
+      <ImageView fx:id="im1" fitHeight="115.0" fitWidth="154.0" layoutX="138.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true" />
+      <ListView fx:id="view" layoutX="523.0" layoutY="352.0" prefHeight="16.0" prefWidth="24.0" style="-fx-border-color: ffffff;" />
+      <TextField fx:id="picture" layoutX="445.0" layoutY="364.0" prefHeight="16.0" prefWidth="116.0" visible="false" />
+      <ImageView fitHeight="93.0" fitWidth="771.0" layoutX="-3.0" layoutY="-5.0" pickOnBounds="true">
+         <image>
+            <Image url="@Pink..PNG" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="79.0" fitWidth="68.0" layoutX="47.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@pipi.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="212.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="gérer mes patisseries" textAlignment="CENTER" wrappingWidth="360.13671875">
+         <font>
+            <Font name="Mistral" size="48.0" />
+         </font>
+      </Text>
+      <Button fx:id="page_précédente1" layoutX="7.0" layoutY="524.0" mnemonicParsing="false" onAction="#page_précédente2" prefHeight="22.0" prefWidth="140.0" text="page précédente" textFill="#5d8a53" />
+      <ImageView fx:id="retour33" fitHeight="33.0" fitWidth="22.0" layoutX="11.0" layoutY="526.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@doudichoice.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

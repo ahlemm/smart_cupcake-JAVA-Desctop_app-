@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="469.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.InscriptionUserController">
+   <children>
+      <Label layoutX="131.0" prefHeight="54.0" prefWidth="312.0" text="Formulaire d'inscription" textFill="#e80808">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="9.0" layoutY="80.0" prefHeight="17.0" prefWidth="69.0" text="Nom" />
+      <Label layoutX="6.0" layoutY="138.0" prefHeight="17.0" prefWidth="60.0" text="Prenom" />
+      <Label layoutX="-2.0" layoutY="198.0" prefHeight="17.0" prefWidth="99.0" text="Date de naissance" />
+      <Label layoutX="6.0" layoutY="267.0" prefHeight="17.0" prefWidth="60.0" text="Email" />
+      <Label layoutX="6.0" layoutY="330.0" prefHeight="17.0" prefWidth="124.0" text="Numero de telephone" />
+      <Label layoutX="6.0" layoutY="386.0" prefHeight="17.0" prefWidth="117.0" text="Adresse" />
+      <Label layoutX="316.0" layoutY="276.0" prefHeight="17.0" prefWidth="69.0" text="Type User" />
+      <Label layoutX="316.0" layoutY="89.0" prefHeight="17.0" prefWidth="69.0" text="Login" />
+      <Label layoutX="320.0" layoutY="139.0" text="Mot de passe" />
+      <TextField fx:id="nomIn" layoutX="138.0" layoutY="81.0" />
+      <TextField fx:id="prenomIn" layoutX="138.0" layoutY="135.0" />
+      <DatePicker fx:id="dateIn" layoutX="132.0" layoutY="194.0" />
+      <TextField fx:id="emailIn" layoutX="138.0" layoutY="263.0" />
+      <TextField fx:id="numIn" layoutX="138.0" layoutY="326.0" />
+      <TextField fx:id="loginIn" layoutX="475.0" layoutY="77.0" />
+      <Button fx:id="BtnInscri" layoutX="376.0" layoutY="339.0" mnemonicParsing="false" onAction="#inscrire" prefHeight="17.0" prefWidth="214.0" text="S'inscrire" textFill="#f50717">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Button>
+      <TextField fx:id="adresseIn" layoutX="138.0" layoutY="382.0" />
+      <ComboBox fx:id="typeIn" layoutX="408.0" layoutY="272.0" prefWidth="150.0" />
+      <PasswordField fx:id="pwd1" layoutX="475.0" layoutY="135.0" />
+      <PasswordField fx:id="pwd2" layoutX="475.0" layoutY="194.0" />
+      <Label layoutX="316.0" layoutY="195.0" text="Confirmer mot de passe" />
+      <Button layoutX="437.0" layoutY="395.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="92.0" text="&lt;---">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

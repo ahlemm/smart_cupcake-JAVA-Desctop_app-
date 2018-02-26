@@ -5,9 +5,10 @@
  */
 package service;
 
-import entite.Patisserie;
+import entite.Produit;
 import entite.User;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,21 +17,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static utile.Config.id_user;
 import utile.DataSource;
 
 /**
  *
- * @author 3D-Artist
+ * @author esprit
  */
 public class ServiceUser {
     
-    private final Connection con;
-    private static ServiceUser instance;
-    
+    private Connection con = DataSource.getInstance().getConnection();
+        private static ServiceUser instance;
+
     public ServiceUser() {
-        con = DataSource.getInstance().getConnection();
+        
     }
     
+    
+
     public static ServiceUser getInstance()
     {
         if (instance == null) {
@@ -41,7 +45,152 @@ public class ServiceUser {
     
     
     
-    public User findUserById(int id_user)
+    
+    public List<User> findAllPatisserie() throws SQLException {
+        List<User> ls = new ArrayList<User>();
+        String sql = "SELECT * FROM user where type='patiserie'";
+        PreparedStatement pre = con.prepareStatement(sql);
+        ResultSet rs = pre.executeQuery();
+        User us = new User();
+        while (rs.next()) {
+            us = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10));
+            
+            ls.add(us);
+        }
+        return ls;
+    }
+    
+    public List<User> afficherUser() throws SQLException {
+        List<User> ls = new ArrayList();
+        String sql = "SELECT * FROM  user u";
+        PreparedStatement pre = con.prepareStatement(sql);
+        ResultSet rs = pre.executeQuery();
+        User u = null;
+        while (rs.next()) {
+            u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10));
+            ls.add(u);
+        }
+        return ls;
+    }
+    
+    public void ajouterUser(User u) throws SQLException {
+//    ste.executeUpdate(req);//executeupdate-->insert,delete,update
+        Date sqlDate = new Date(u.getDate_naissance().getTime());
+        String req = "INSERT INTO `user` (nom,prenom,type,date_naissance,email,adresse,num_tel,login,password)" + " VALUES (?,?,?,?,?,?,?,?,?)";
+        PreparedStatement pre = con.prepareStatement(req);
+        pre.setString(1, u.getNom());
+        pre.setString(2, u.getPrenom());
+        pre.setString(3, u.getType());
+        pre.setDate(4, sqlDate);
+        pre.setString(5, u.getEmail());
+        pre.setString(6, u.getAdresse());
+        pre.setInt(7, u.getNum_tel());
+        pre.setString(8, u.getLogin());
+        pre.setString(9, u.getPassword());
+        
+        pre.executeUpdate();
+        
+    }
+
+    public List<User> afficherUserLogin(String login) throws SQLException {
+        List<User> ls = new ArrayList<User>();
+        String sql = "SELECT * FROM user u where login=?";
+        PreparedStatement pre = con.prepareStatement(sql);
+        pre.setString(1, login);
+        ResultSet rs = pre.executeQuery();
+        User u = new User();
+        while (rs.next()) {
+            u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10));
+            ls.add(u);
+        }
+        return ls;
+    }
+
+    public List<User> afficherUserEmail(String email) throws SQLException {
+        List<User> ls = new ArrayList<User>();
+        String sql = "SELECT * FROM user u where email=?";
+        PreparedStatement pre = con.prepareStatement(sql);
+        pre.setString(1, email);
+        ResultSet rs = pre.executeQuery();
+        User u = new User();
+        while (rs.next()) {
+            u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10));
+            ls.add(u);
+        }
+        return ls;
+    }
+
+    public List<User> afficherUserExist(String login, String password) throws SQLException {
+        List<User> ls = new ArrayList<User>();
+        String sql = "SELECT * FROM user u where login=? and password=?";
+        PreparedStatement pre = con.prepareStatement(sql);
+        pre.setString(1, login);
+        pre.setString(2, password);
+        
+        ResultSet rs = pre.executeQuery();
+        User u = new User();
+        while (rs.next()) {
+            u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10));
+            ls.add(u);
+        }
+        return ls;
+    }
+    
+    public List<User> afficherUserById(int id) throws SQLException {
+        List<User> ls = new ArrayList<User>();
+        String sql = "SELECT * FROM user u where id_user=?";
+        PreparedStatement pre = con.prepareStatement(sql);
+        pre.setInt(1, id);
+        ResultSet rs = pre.executeQuery();
+        User u = new User();
+        while (rs.next()) {
+            u = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getString(10));
+            ls.add(u);
+        }
+        return ls;
+    }
+    
+    public void supprimer(int id) throws SQLException {
+        String sql = "delete from user where id_user=?";
+        PreparedStatement pre = con.prepareStatement(sql);
+        pre.setInt(1, id);
+        pre.executeUpdate();
+    }
+
+    public void modifierCompte(User u) throws SQLException {
+
+        Date sqlDate = new Date(u.getDate_naissance().getTime());
+        String req = "update user set nom=?,prenom=?,"
+                + " date_naissance=?,email=?,login=?,num_tel=?"
+               + ",adresse=? where id_user=?";
+        PreparedStatement pre = con.prepareStatement(req);
+        pre.setString(1, u.getNom());
+        pre.setString(2, u.getPrenom());
+        
+        pre.setDate(3, sqlDate);
+        pre.setString(4, u.getEmail());
+        pre.setString(7, u.getAdresse());
+        pre.setInt(6, u.getNum_tel());
+      
+        pre.setString(5, u.getLogin());
+        pre.setInt(8, u.getId_user());
+        
+        pre.executeUpdate();
+        
+    }
+   public void modifierMDP(User u) throws SQLException {
+
+      
+        String req = "update user set password=? where id_user=?";
+        PreparedStatement pre = con.prepareStatement(req);
+        pre.setString(1, u.getPassword());
+        
+        pre.setInt(2, u.getId_user());
+        
+        pre.executeUpdate();
+        
+    } 
+   public User findUserById(int id_user)
     {
         User owner = new User();
         int count = 0;
@@ -76,194 +225,5 @@ public class ServiceUser {
             return null;
         }
    }
-//    
-//    
-    public boolean checkCinExist(int id_user)
-    {
-        
-        int count = 0;
-           
-        String requete="select * from user where id_user="+id_user;
-        try{
-            Statement st = con.createStatement();
-            ResultSet rsl = st.executeQuery(requete);
-            while(rsl.next())
-            {
-                count++;
-            }
-           if(count == 0){
-                return false;
-           }else{
-               return true;
-           }  
-        }
-        catch (SQLException ex) {
-            Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-   }
-    
-    
-    public User login(String email, String password){
-        User owner = new User();
-        try {
-            String requete = "select * from user where email='"+email+"' and password='"+password+"'";
-            Statement st = con.createStatement();
-            ResultSet rsl = st.executeQuery(requete);
-            int count = 0;
-            while(rsl.next()){
-                count ++;
-                owner.setId_user(rsl.getInt(1));
-                owner.setNom(rsl.getString(2));
-                owner.setPrenom(rsl.getString(3));
-                owner.setType(rsl.getString(4));
-                owner.setDate_naissance(rsl.getDate(5));
-                owner.setEmail(rsl.getString(6));
-                owner.setAdresse(rsl.getString(7));
-                owner.setNum_tel(rsl.getInt(8));
-                owner.setLogin(rsl.getString(9));
-                owner.setPassword(rsl.getString(10));
-            }
-            System.out.println(count);
-            if(count == 0){
-                return null;
-            }else{
-                return owner;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }
-        
-    }
-//    
-    public boolean ajouteUser(User client)throws SQLException
-    {
-        int numberRows;
-        try {
-            String requete = "insert into user set id_user=?,nom=?,prenom=?, type=?,  email=?, adresse=?, num_tel=?, login=?, password=?";
-            PreparedStatement pst = con.prepareStatement(requete);
-            pst.setInt(1, client.getId_user());
-            pst.setString(2, client.getNom());
-            pst.setString(3, client.getPrenom());
-            pst.setString(4, client.getType());
-        //    pst.setDate(5, client.getDate_naissance());
-            pst.setString(5, client.getEmail());
-            pst.setString(6, client.getAdresse());
-            pst.setInt(7, client.getNum_tel());
-            pst.setString(8, client.getLogin());
-            pst.setString(9, client.getPassword());
-           
-            numberRows = pst.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-        if(numberRows == 0){
-            return false;
-        }else{
-                    System.out.println("ajout user avec succées");
-
-            return true;
-        }
-    }
-    
-//    
-    public boolean supprimerUser(int id_user)
-    {
-        int test=0;
-        boolean check;
-        try{
-            List<Patisserie> patisseries = new ArrayList<>();
-           // patisseries = ServicePatisserie.getInstance().getPatisserieById(id_user);
-            if(patisseries != null){
-                for(int i=0; i<patisseries.size();i++){
-                    ServicePatisserie.getInstance().supprimer(patisseries.get(i).getId_patisserie());
-                }
-            }
-            
-            PreparedStatement pst = con.prepareStatement("delete from user where id_user="+id_user); 
-            test= pst.executeUpdate();
-        }
-        catch (SQLException ex)
-        {
-            Logger.getLogger(ServicePatisserie.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if (test == 0)
-        {
-            check=false;
-        }else{
-            check=true;
-        }
-        return check ;
-    }
-    
-    
-    public boolean approuverUser(int id)
-    {
-        int test=0;
-        boolean check;
-        try{
-            PreparedStatement pst = con.prepareStatement("update user set approuved=1 where id="+id); 
-            test= pst.executeUpdate();
-        }
-        catch (SQLException ex)
-        {
-            Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if (test == 0)
-        {
-            check=false;
-        }else{
-            check=true;
-        }
-        return check ;
-    }
-    
-//    
-    public List<User> getAllUsers()
-    {
-        List<User> list = new ArrayList<User>();
-        int count = 0;
-           
-        String requete="select * from user";
-        try{
-            Statement st = con.createStatement();
-            ResultSet rsl = st.executeQuery(requete);
-            while(rsl.next())
-            {
-                if(! rsl.getString(11).equals("ROLE_ADMIN")){
-                    User owner = new User();
-                  owner.setId_user(rsl.getInt(1));
-                owner.setNom(rsl.getString(2));
-                owner.setPrenom(rsl.getString(3));
-                owner.setType(rsl.getString(4));
-                owner.setDate_naissance(rsl.getDate(5));
-                owner.setEmail(rsl.getString(6));
-                owner.setAdresse(rsl.getString(7));
-                owner.setNum_tel(rsl.getInt(8));
-                owner.setLogin(rsl.getString(9));
-                owner.setPassword(rsl.getString(10));
-                   
-                count++;
-                    list.add(owner);
-                }
-            }
-           if(count == 0){
-                return null;
-           }else{
-               return list;
-           }  
-        }
-        catch (SQLException ex) {
-            Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }
-   }
-
-
-
 
 }
-    
-

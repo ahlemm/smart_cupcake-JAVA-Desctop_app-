@@ -33,6 +33,17 @@ public class Test {
         Connection con = da.getConnection();
         
       System.out.println(con);
+      
+        
+        
+          ServicePatisserie s = new ServicePatisserie();
+        try {
+      Patisserie p1 = new Patisserie( "lala", "gateaux", "akk", 4D, 6D, "dkk", 1,patissier );
+            s.ajouterPatisserie(p1);
+      //      sp.ajouterProduit(p1);
+        } catch (SQLException ex) {
+            Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
+        }
     //  User h=new User("ghada","dridi","patissier","g@gmail.com","bzrt",7888,"a","e");
        
 //    //    Patisserie p1 = new Patisserie( "lala", "gateaux", "akk", 4D, 6D, "dkk", 1 );
@@ -49,16 +60,13 @@ ServiceUser su = new ServiceUser ();
    
 ServicePatisserie sp = new ServicePatisserie();
 
-
+    }}
 //sp.updatePatisserie(12, "halima", "creme", "h", "d");
-  //sp.ModifierPatisserie(p);
+//  sp.ModifierPatisserie(p);
 //
-//  try {
-//sp.ajouterPatisserie(p);
-//
-//        
+// try {
 //        } catch (SQLException ex) {
-//         Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);}}}
+//         Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);}}}/*
 ////     
 //User a=su.findUserById(1);    
 // Patisserie p1= sp.getPatisserieById(5);
@@ -82,11 +90,11 @@ ServicePatisserie sp = new ServicePatisserie();
 //// *************
 ////sp.ModifierPatisserie(p )
 //
-       List<Patisserie> l = new ArrayList<>();
-              List<Patisserie> l1 = new ArrayList<>();
-l=sp.searchPatisserie("vicoria", "", "");
- System.out.println(l);}}
-// sp.approuver(14);
+//       List<Patisserie> l = new ArrayList<>();
+//              List<Patisserie> l1 = new ArrayList<>();
+//l=sp.searchPatisserie("vicoria", "", "");
+// System.out.println(l);}}
+//// sp.approuver(14);
  
 //            // l = sp.getAllPatisserieNonApprouved();
 //           

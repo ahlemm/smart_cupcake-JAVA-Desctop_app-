@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import static utile.Utils.patissier;
 
 /**
  *
@@ -19,10 +18,10 @@ public class FirstPage extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         
-            Parent root = FXMLLoader.load(getClass().getResource("affichage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("MenuPatissier.fxml"));
         Scene scene = new Scene(root);
          
-        primaryStage.setTitle("ajouté");
+        primaryStage.setTitle("admin");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

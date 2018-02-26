@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import com.lynden.gmapsfx.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLMapController">
+    <children>
+        <GoogleMapView fx:id="mapView" prefHeight="750.0" prefWidth="761.0" AnchorPane.bottomAnchor="-185.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-441.0" AnchorPane.topAnchor="0.0" />
+        <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="441.0" layoutY="405.0" prefHeight="72.0" prefWidth="45.0" spacing="10.0" styleClass="panel-background" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="441.0" AnchorPane.topAnchor="405.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="29.0" fitWidth="36.0" onMouseClicked="#zoomIn" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/zoom-in.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="36.0" layoutX="31.0" layoutY="80.0" onMouseClicked="#zoomOut" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/zoom-out.png" />
+               </image>
+            </ImageView>
+         </children></VBox>
+    </children>
+</AnchorPane>

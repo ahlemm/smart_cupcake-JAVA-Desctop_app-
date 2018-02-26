@@ -53,6 +53,14 @@ public class User {
         this.password = password;
     }
 
+    public User(int id_user, String text, String text0, java.util.Date date, String text1, String text2, int parseInt, String text3) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public User(int id_user, String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId_user() {
         return id_user;
     }

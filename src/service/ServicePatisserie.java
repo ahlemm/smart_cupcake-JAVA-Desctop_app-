@@ -43,7 +43,7 @@ public class ServicePatisserie {
     public void ajouterPatisserie(Patisserie p) throws SQLException {
 //    ste.executeUpdate(req);//executeupdate-->insert,delete,update
 
-        String req = "INSERT INTO `patisserie` ( `nom_patisserie`, `activite`,`info_patisserie`,`longitude`,`latitude`,`adresse_patisserie`,`id_user`)" + " VALUES (?,?,?,?,?,?,?)";
+        String req = "INSERT INTO `patisserie` ( `nom_patisserie`, `activite`,`info_patisserie`,`longitude`,`latitude`,`adresse_patisserie`,`id_user`,`photo_patisserie`)" + " VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement pre = con.prepareStatement(req);
 
         pre.setString(1, p.getNom_patisserie());
@@ -53,22 +53,23 @@ public class ServicePatisserie {
         pre.setDouble(4, p.getLongitude());
         pre.setDouble(5, p.getLatitude());
         pre.setString(6, p.getAdresse_patisserie());
-  //      pre.setInt(7, p.getEtat_patisserie());
-       pre.setInt(7,p.getPatissier().getId_user());
+        //      pre.setInt(7, p.getEtat_patisserie());
+        pre.setInt(7, p.getPatissier().getId_user());
 //       pre.setObject(7,p.getPatissier());
-
+        
+        pre.setString(8, p.getPhoto_patisserie());
         pre.executeUpdate();
         System.out.println("ajout avec succées");
 
     }
 
     public void ModifierPatisserie(Patisserie p) {
-        String req = "UPDATE patisserie set id_patisserie=?,nom_patisserie=?,activite=?,info_patisserie=?,longitude=?,latitude=?,adresse_patisserie=?,etat_patisserie=? WHERE  id_patisserie="+p.getId_patisserie();
-        
+        String req = "UPDATE patisserie set id_patisserie=?,nom_patisserie=?,activite=?,info_patisserie=?,longitude=?,latitude=?,adresse_patisserie=?,etat_patisserie=? WHERE  id_patisserie=" + p.getId_patisserie();
+
         try {
             PreparedStatement pre = con.prepareStatement(req);
             pre.setInt(1, p.getId_patisserie());
-             pre.setString(2, p.getNom_patisserie());
+            pre.setString(2, p.getNom_patisserie());
 
             pre.setString(3, p.getAcitivite());
             pre.setString(4, p.getInfo_patisserie());
@@ -76,7 +77,7 @@ public class ServicePatisserie {
             pre.setDouble(6, p.getLatitude());
             pre.setString(7, p.getAdresse_patisserie());
             pre.setInt(8, p.getEtat_patisserie());
-       //   pre.setInt(8,p.getPatissier().getId_user());
+            //   pre.setInt(8,p.getPatissier().getId_user());
 
             pre.executeUpdate();
             System.out.println("modification avec succés");
@@ -86,42 +87,39 @@ public class ServicePatisserie {
         }
 
     }
-       public boolean updatePatisserie(int id_patisserie,String a,String b, String c, String d) { 
-       
-       String req = "update patisserie set nom_patisserie='"+a+"',activite='"+b+"',info_patisserie='"+c+"',adresse_patisserie='"+d+"' WHERE  id_patisserie="+id_patisserie;
+
+    public boolean updatePatisserie(int id_patisserie, String a, String b, String c, String d) {
+
+        String req = "update patisserie set nom_patisserie='" + a + "',activite='" + b + "',info_patisserie='" + c + "',adresse_patisserie='" + d + "' WHERE  id_patisserie=" + id_patisserie;
         try {
             PreparedStatement pre = con.prepareStatement(req);
             pre.executeUpdate(req);
         } catch (SQLException ex) {
             Logger.getLogger(ServicePatisserie.class.getName()).log(Level.SEVERE, null, ex);
-                        System.out.println("modification avec succés");
+            System.out.println("modification avec succés");
 
-       return true;
+            return true;
         }
-        
- 
-    
-return false;
-   }
-  
-         public boolean updatePatisserie1(int id_patisserie,String a,String b, String c, Double p,Double w, String d) { 
-       
-       String req = "update patisserie set nom_patisserie='"+a+"',activite='"+b+"',info_patisserie='"+c+"',longitude='"+p+"',latitude='"+w+"',adresse_patisserie='"+d+"' WHERE  id_patisserie="+id_patisserie;
+
+        return false;
+    }
+
+    public boolean updatePatisserie1(int id_patisserie, String a, String b, String c, Double p, Double w, String d) {
+
+        String req = "update patisserie set nom_patisserie='" + a + "',activite='" + b + "',info_patisserie='" + c + "',longitude='" + p + "',latitude='" + w + "',adresse_patisserie='" + d + "' WHERE  id_patisserie=" + id_patisserie;
         try {
             PreparedStatement pre = con.prepareStatement(req);
             pre.executeUpdate(req);
         } catch (SQLException ex) {
             Logger.getLogger(ServicePatisserie.class.getName()).log(Level.SEVERE, null, ex);
-                        System.out.println("modification avec succés");
+            System.out.println("modification avec succés");
 
-       return true;
+            return true;
         }
-        
- 
-    
-return false;
-   }
-  
+
+        return false;
+    }
+
 //
 //    public List<Patisserie> afficher() throws SQLException {
 //        List<Patisserie> ls = new ArrayList();
@@ -136,10 +134,9 @@ return false;
 //        return ls;
 //    }
 //
-       
     public ObservableList<Patisserie> getAllPatisseries() {
-          ObservableList<Patisserie> listPatisseries= FXCollections.observableArrayList();
-    
+        ObservableList<Patisserie> listPatisseries = FXCollections.observableArrayList();
+
         try {
             String req = "select * from patisserie";
             Statement st = con.createStatement();
@@ -157,10 +154,12 @@ return false;
                 p.setLatitude(rsl.getDouble(6));
                 p.setAdresse_patisserie(rsl.getString(7));
                 p.setEtat_patisserie(rsl.getInt(8));
-               int id_user = rsl.getInt(9);
-                ServiceUser daoUser = ServiceUser.getInstance();
-               // p.setPatissier(daoUser.findUserById(id_user));
 
+                int id_user = rsl.getInt(9);
+
+                ServiceUser daoUser = ServiceUser.getInstance();
+                // p.setPatissier(daoUser.findUserById(id_user));
+                p.setPhoto_patisserie(rsl.getString(10));
                 listPatisseries.add(p);
             }
 
@@ -192,6 +191,7 @@ return false;
 //        }
 //    }
 //     */
+
     public void supprimer(int id_patisserie) throws SQLException {
 
         String req = "delete from  patisserie where id_patisserie= ?";
@@ -200,14 +200,15 @@ return false;
         pre.setInt(1, id_patisserie);
 
         pre.executeUpdate();// taamel delete 3al base de donné 
-         System.out.println("patisserie supprimer");
+        System.out.println("patisserie supprimer");
 
     }
 //
+
     public void approuver(int id_patisserie) {
-        
+
         try {
-            String req =("update patisserie set etat_patisserie=3 where id_patisserie=" + id_patisserie);
+            String req = ("update patisserie set etat_patisserie=3 where id_patisserie=" + id_patisserie);
             PreparedStatement pre = con.prepareStatement(req);
             pre.executeUpdate();
             System.out.println("approuvée avec succés");
@@ -217,6 +218,7 @@ return false;
 
     }
 //
+
     public void etudier(int id_patisserie) {
         ;
         try {
@@ -229,18 +231,18 @@ return false;
 
     }
 //getPatisserieById
- public ObservableList<Patisserie> getPatisserieById( int id_patisserie) {
-          ObservableList<Patisserie> listPatisseries= FXCollections.observableArrayList();
-      try {
-            String requete = "select * from patisserie where id_patisserie="+id_patisserie;
+
+    public ObservableList<Patisserie> getPatisserieById(int id_patisserie) {
+        ObservableList<Patisserie> listPatisseries = FXCollections.observableArrayList();
+        try {
+            String requete = "select * from patisserie where id_patisserie=" + id_patisserie;
             Statement st = con.createStatement();
             ResultSet rsl = st.executeQuery(requete);
-            
-            while(rsl.next()){
+
+            while (rsl.next()) {
                 Patisserie p = new Patisserie();
-                
-                
-                   p.setId_patisserie(rsl.getInt(1));
+
+                p.setId_patisserie(rsl.getInt(1));
                 p.setNom_patisserie(rsl.getString(2));
                 p.setAcitivite(rsl.getString(3));
                 p.setInfo_patisserie(rsl.getString(4));
@@ -249,29 +251,26 @@ return false;
                 p.setLatitude(rsl.getDouble(6));
                 p.setAdresse_patisserie(rsl.getString(7));
                 p.setEtat_patisserie(rsl.getInt(8));
+                p.setPhoto_patisserie(rsl.getString(9));
 
 //   int id_patissier = rsl.getInt(9);
 //                ServiceUser daoUser = ServiceUser.getInstance();
 //                p.setPatissier(daoUser.findUserById(id_patissier));
-
                 listPatisseries.add(p);
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         return listPatisseries;
     }
-     
-    
 
-
- public ObservableList<Patisserie> searchPatisserie(String nom_patisserie, String activite, String adresse_patisserie) {
-          ObservableList<Patisserie> listPatisseries= FXCollections.observableArrayList();
+    public ObservableList<Patisserie> searchPatisserie(String nom_patisserie, String activite, String adresse_patisserie) {
+        ObservableList<Patisserie> listPatisseries = FXCollections.observableArrayList();
         try {
-           
-            String requete = "select * from patisserie where nom_patisserie LIKE '%"+nom_patisserie+"%' or activite LIKE '%"+activite+"%' or adresse_patisserie LIKE '%"+adresse_patisserie+"%'";
+
+            String requete = "select * from patisserie where nom_patisserie LIKE '%" + nom_patisserie + "%' && activite LIKE '%" + activite + "%' && adresse_patisserie LIKE '%" + adresse_patisserie + "%'";
             Statement st = con.createStatement();
             ResultSet rsl = st.executeQuery(requete);
 
@@ -288,11 +287,12 @@ return false;
                 p.setLatitude(rsl.getDouble(6));
                 p.setAdresse_patisserie(rsl.getString(7));
                 p.setEtat_patisserie(rsl.getInt(8));
-                
-                 int id_patissier = rsl.getInt(9);
+
+                int id_patissier = rsl.getInt(9);
+
                 ServiceUser daoUser = ServiceUser.getInstance();
                 p.setPatissier(daoUser.findUserById(id_patissier));
-
+                p.setPhoto_patisserie(rsl.getString(10));
                 listPatisseries.add(p);
             }
 
@@ -302,9 +302,9 @@ return false;
         }
         return listPatisseries;
     }
-  
-     public ObservableList<Patisserie> search_nom(String nom_patisserie) {
-          ObservableList<Patisserie> listPatisseries= FXCollections.observableArrayList();
+
+    public ObservableList<Patisserie> search_nom(String nom_patisserie) {
+        ObservableList<Patisserie> listPatisseries = FXCollections.observableArrayList();
         try {
             String requete = "select * from patisserie where nom_patisserie LIKE '%" + nom_patisserie + "%'";
             Statement st = con.createStatement();
@@ -323,10 +323,12 @@ return false;
                 p.setLatitude(rsl.getDouble(6));
                 p.setAdresse_patisserie(rsl.getString(7));
                 p.setEtat_patisserie(rsl.getInt(8));
-                
-                 int id_patissier = rsl.getInt(9);
+
+                int id_patissier = rsl.getInt(9);
                 ServiceUser daoUser = ServiceUser.getInstance();
+
                 p.setPatissier(daoUser.findUserById(id_patissier));
+                p.setPhoto_patisserie(rsl.getString(10));
 
                 listPatisseries.add(p);
             }
@@ -340,13 +342,12 @@ return false;
 
 ////    
 //    
-   
     public ObservableList<Patisserie> getAllPatisserieNonApprouved() {
-          ObservableList<Patisserie> listPatisseries= FXCollections.observableArrayList();
+        ObservableList<Patisserie> listPatisseries = FXCollections.observableArrayList();
         try {
             String req = "select * from patisserie where etat_patisserie=1";
 
-       Statement st = con.createStatement();
+            Statement st = con.createStatement();
             ResultSet rsl = st.executeQuery(req);
 
             while (rsl.next()) {
@@ -361,10 +362,10 @@ return false;
                 p.setLatitude(rsl.getDouble(6));
                 p.setAdresse_patisserie(rsl.getString(7));
                 p.setEtat_patisserie(rsl.getInt(8));
-                   int id_patissier = rsl.getInt(9);
+                int id_patissier = rsl.getInt(9);
                 ServiceUser daoUser = ServiceUser.getInstance();
                 p.setPatissier(daoUser.findUserById(id_patissier));
-
+                p.setPhoto_patisserie(rsl.getString(10));
                 listPatisseries.add(p);
             }
 
@@ -374,13 +375,13 @@ return false;
         }
         return listPatisseries;
     }
-  
+
     public ObservableList<Patisserie> getAllPatisserieàEtudier() {
-          ObservableList<Patisserie> listPatisseries= FXCollections.observableArrayList();
+        ObservableList<Patisserie> listPatisseries = FXCollections.observableArrayList();
         try {
             String req = "select * from patisserie where etat_patisserie=2";
 
-       Statement st = con.createStatement();
+            Statement st = con.createStatement();
             ResultSet rsl = st.executeQuery(req);
 
             while (rsl.next()) {
@@ -395,10 +396,10 @@ return false;
                 p.setLatitude(rsl.getDouble(6));
                 p.setAdresse_patisserie(rsl.getString(7));
                 p.setEtat_patisserie(rsl.getInt(8));
-                   int id_patissier = rsl.getInt(9);
+                int id_patissier = rsl.getInt(9);
                 ServiceUser daoUser = ServiceUser.getInstance();
                 p.setPatissier(daoUser.findUserById(id_patissier));
-
+                p.setPhoto_patisserie(rsl.getString(10));
                 listPatisseries.add(p);
             }
 
@@ -410,12 +411,13 @@ return false;
     }
 //    
 //    
+
     public ObservableList<Patisserie> getAllPatisserieApprouved() {
-          ObservableList<Patisserie> listPatisseries= FXCollections.observableArrayList();
+        ObservableList<Patisserie> listPatisseries = FXCollections.observableArrayList();
         try {
             String req = "select * from patisserie where etat_patisserie=3";
 
-       Statement st = con.createStatement();
+            Statement st = con.createStatement();
             ResultSet rsl = st.executeQuery(req);
 
             while (rsl.next()) {
@@ -430,10 +432,10 @@ return false;
                 p.setLatitude(rsl.getDouble(6));
                 p.setAdresse_patisserie(rsl.getString(7));
                 p.setEtat_patisserie(rsl.getInt(8));
-                   int id_patissier = rsl.getInt(9);
+                int id_patissier = rsl.getInt(9);
                 ServiceUser daoUser = ServiceUser.getInstance();
                 p.setPatissier(daoUser.findUserById(id_patissier));
-
+                p.setPhoto_patisserie(rsl.getString(10));
                 listPatisseries.add(p);
             }
 
@@ -443,23 +445,19 @@ return false;
         }
         return listPatisseries;
     }
-     
-     
-     
-     public ObservableList<Patisserie> getPatisseriesByidPatissier(int id) {
-          ObservableList<Patisserie> listPatisseries= FXCollections.observableArrayList();
-   
-    
+
+    public ObservableList<Patisserie> getPatisseriesByidPatissier(int id) {
+        ObservableList<Patisserie> listPatisseries = FXCollections.observableArrayList();
+
         try {
-            String requete = "select * from patisserie where id_user="+id;
+            String requete = "select * from patisserie where id_user=" + id;
             Statement st = con.createStatement();
             ResultSet rsl = st.executeQuery(requete);
-            
-            while(rsl.next()){
+
+            while (rsl.next()) {
                 Patisserie p = new Patisserie();
-                
-                
-                   p.setId_patisserie(rsl.getInt(1));
+
+                p.setId_patisserie(rsl.getInt(1));
                 p.setNom_patisserie(rsl.getString(2));
                 p.setAcitivite(rsl.getString(3));
                 p.setInfo_patisserie(rsl.getString(4));
@@ -468,36 +466,33 @@ return false;
                 p.setLatitude(rsl.getDouble(6));
                 p.setAdresse_patisserie(rsl.getString(7));
                 p.setEtat_patisserie(rsl.getInt(8));
+                p.setPhoto_patisserie(rsl.getString(10));
 
 //   int id_patissier = rsl.getInt(9);
 //                ServiceUser daoUser = ServiceUser.getInstance();
 //                p.setPatissier(daoUser.findUserById(id_patissier));
-
                 listPatisseries.add(p);
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         return listPatisseries;
     }
-     
-     
-       public ObservableList<Patisserie> mes_patisserie(int id) {
-          ObservableList<Patisserie> listPatisseries= FXCollections.observableArrayList();
-   
-    
+
+    public ObservableList<Patisserie> mes_patisserie(int id) {
+        ObservableList<Patisserie> listPatisseries = FXCollections.observableArrayList();
+
         try {
-            String requete = "select * from patisserie where id_user="+id;
+            String requete = "select * from patisserie where id_user=" + id;
             Statement st = con.createStatement();
             ResultSet rsl = st.executeQuery(requete);
-            
-            while(rsl.next()){
+
+            while (rsl.next()) {
                 Patisserie p = new Patisserie();
-                
-                
-                   p.setId_patisserie(rsl.getInt(1));
+
+                p.setId_patisserie(rsl.getInt(1));
                 p.setNom_patisserie(rsl.getString(2));
                 p.setAcitivite(rsl.getString(3));
                 p.setInfo_patisserie(rsl.getString(4));
@@ -505,22 +500,21 @@ return false;
                 p.setLongitude(rsl.getDouble(5));
                 p.setLatitude(rsl.getDouble(6));
                 p.setAdresse_patisserie(rsl.getString(7));
-              //  p.setEtat_patisserie(rsl.getInt(8));
+                //  p.setEtat_patisserie(rsl.getInt(8));
 
 //   int id_patissier = rsl.getInt(9);
 //                ServiceUser daoUser = ServiceUser.getInstance();
 //                p.setPatissier(daoUser.findUserById(id_patissier));
-
                 listPatisseries.add(p);
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
         return listPatisseries;
     }
-     
-    
-}
 
+
+
+}

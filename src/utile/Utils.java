@@ -29,5 +29,8 @@ import utile.DataSource;
  */
 public class Utils {
     public static User patissier=new User(21,"blean","a","patissier", "hh@h","ddd",77,"ff","dd");
+     
+    public static Patisserie p1=new Patisserie("victoia","a","patissier", 7.2D,8.5D,"tunis",patissier,"photo");
+
     
 }

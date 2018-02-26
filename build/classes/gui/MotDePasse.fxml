@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="451.0" prefWidth="466.0" style="-fx-background-color: #FCFAE1;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MotDePasseController">
+   <children>
+      <Label layoutX="51.0" layoutY="22.0" prefHeight="63.0" prefWidth="365.0" text="          Changer le mot de passe" textFill="INDIANRED">
+         <font>
+            <Font name="Arial Bold" size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="BtnMDP" layoutX="125.0" layoutY="348.0" mnemonicParsing="false" onAction="#modifierMDP" prefHeight="33.0" prefWidth="217.0" style="-fx-background-color: #cd5c5c;" text="Enregistrer les modifications" textFill="#fcfae1">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Pane layoutX="67.0" layoutY="111.0" prefHeight="200.0" prefWidth="349.0" style="-fx-background-color: #F08080;">
+         <children>
+            <PasswordField fx:id="actuel" layoutX="158.0" layoutY="35.0" style="-fx-background-color: #FCFAE1;" />
+            <Label layoutX="38.0" layoutY="145.0" prefHeight="17.0" prefWidth="97.0" text="confirmer" textFill="#a44444">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="nouveau" layoutX="158.0" layoutY="88.0" style="-fx-background-color: #FCFAE1;" />
+            <PasswordField fx:id="confirmer" layoutX="158.0" layoutY="142.0" style="-fx-background-color: #FCFAE1;" />
+            <Label layoutX="38.0" layoutY="92.0" prefHeight="17.0" prefWidth="97.0" text="nouveau" textFill="#a44444">
+               <font>
+                  <Font name="Arial Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="39.0" prefHeight="17.0" prefWidth="97.0" text="Actuel" textFill="#a44444">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="31.0" layoutY="372.0" mnemonicParsing="false" onAction="#retourMDP" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #F08080;" text="&lt;---" textFill="#7c1818">
+         <font>
+            <Font name="Arial Bold" size="21.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
