@@ -29,6 +29,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import service.ServiceUser;
 import utile.Config;
+import static utile.Utils.patissier;
 
 /**
  * FXML Controller class
@@ -108,11 +109,32 @@ public class AuthentificationController implements Initializable {
                             window.setScene(scene);
                             window.show();
                            
+                        }else if (u.getType().equals("Patissier")) {
+                           patissier=u;
+                            Stage stage = (Stage) BtnInscrire.getScene().getWindow();
+                            stage.close();
+
+                            Stage window = new Stage();
+
+
+                            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("MenuPatissier.fxml")));
+                            window.setScene(scene);
+                            window.show();
+                           
                         }
-                        
-                        
-                        
-                        
+                        else if (u.getType().equals("Admin")) {
+                           patissier=u;
+                            Stage stage = (Stage) BtnInscrire.getScene().getWindow();
+                            stage.close();
+
+                            Stage window = new Stage();
+
+
+                            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("MenuAdmin.fxml")));
+                            window.setScene(scene);
+                            window.show();
+                           
+                        }
                     }
 
                 }

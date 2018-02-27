@@ -54,7 +54,7 @@
       </Pane>
       <ImageView fitHeight="293.0" fitWidth="273.0" layoutX="440.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Desktop/cupcake-rose-200x300.jpg" />
+            <Image url="file:/C:/Users/esprit/Desktop/cupcake-rose-200x300.jpg" />
          </image>
       </ImageView>
       <Button fx:id="BtnInscrire" layoutX="476.0" layoutY="407.0" mnemonicParsing="false" onAction="#inscrire" prefHeight="31.0" prefWidth="124.0" style="-fx-background-color: #FA8072;" text="S'inscrire" textFill="#8c5935">

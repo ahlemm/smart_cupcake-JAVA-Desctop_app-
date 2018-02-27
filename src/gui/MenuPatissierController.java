@@ -1,11 +1,6 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
- * and open the template in the editor.MenuPatissierController
- */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package gui;
@@ -21,7 +16,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
@@ -32,9 +26,7 @@ import javafx.stage.Stage;
 public class MenuPatissierController implements Initializable {
 
     @FXML
-    private Label menu;
-    @FXML
-    private Button patisserie_patissier;
+    private Button gerer_mespatisserie;
 
     /**
      * Initializes the controller class.
@@ -45,62 +37,16 @@ public class MenuPatissierController implements Initializable {
     }    
 
     @FXML
-    private void consulter(ActionEvent event) throws IOException {
-        Stage stage = (Stage) menu.getScene().getWindow();
-        stage.close();
-
-        Stage window = new Stage();
-
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Commande.fxml")));
-        window.setScene(scene);
-        window.show();
-        
-        
-        
-        
+    private void deconecter(ActionEvent event) {
     }
 
     @FXML
-    private void retour(ActionEvent event) throws IOException {
-        Stage stage = (Stage) menu.getScene().getWindow();
-        stage.close();
-
-        Stage window = new Stage();
-
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Authentification.fxml")));
-        window.setScene(scene);
-        window.show();
+    private void consulterMonCompte(ActionEvent event) {
     }
 
     @FXML
-    private void consulterMonCompte(ActionEvent event) throws IOException {
-         Stage stage = (Stage) menu.getScene().getWindow();
-        stage.close();
-
-        Stage window = new Stage();
-
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Compte.fxml")));
-        window.setScene(scene);
-        window.show();
-    }
-
-    @FXML
-    private void listComd(ActionEvent event) throws IOException {
-              Stage stage = (Stage) menu.getScene().getWindow();
-        stage.close();
-
-        Stage window = new Stage();
-
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("ListCommande.fxml")));
-        window.setScene(scene);
-        window.show();
-    }
-
- 
-
-    @FXML
-    private void patisserie_patissier(ActionEvent event) throws IOException {
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("AjoutPat.fxml"));
+    private void gerer_mespatisserie(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("AjoutPat.fxml"));
             Parent root = loader.load();
            Scene homePageScene=new Scene(root); 
            Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
