@@ -7,7 +7,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuPatissierController">
    <children>
-      <Button layoutX="237.0" layoutY="214.0" mnemonicParsing="false" onAction="#deconecter" prefHeight="25.0" prefWidth="101.0" text="deconnecter" />
+      <Button layoutX="237.0" layoutY="262.0" mnemonicParsing="false" onAction="#deconecter" prefHeight="25.0" prefWidth="101.0" text="deconnecter" />
       <Button layoutX="191.0" layoutY="158.0" mnemonicParsing="false" onAction="#consulterMonCompte" prefHeight="25.0" prefWidth="192.0" text="Consulter mon compte" />
       <Label layoutX="99.0" layoutY="9.0" prefHeight="76.0" prefWidth="386.0" text="   Menu Patissier">
          <font>
@@ -15,5 +15,7 @@
          </font>
       </Label>
       <Button fx:id="gerer_mespatisserie" layoutX="188.0" layoutY="114.0" mnemonicParsing="false" onAction="#gerer_mespatisserie" prefHeight="34.0" prefWidth="192.0" text="Gérer mes patisseries" />
+      <Button fx:id="formation_page" layoutX="192.0" layoutY="190.0" mnemonicParsing="false" onAction="#formation_page" prefHeight="25.0" prefWidth="192.0" text="Gérer les Formations" />
+      <Button fx:id="promotions_page" layoutX="196.0" layoutY="226.0" mnemonicParsing="false" onAction="#promotions_page" prefHeight="25.0" prefWidth="192.0" text="Gérer les Promotions" />
    </children>
 </AnchorPane>

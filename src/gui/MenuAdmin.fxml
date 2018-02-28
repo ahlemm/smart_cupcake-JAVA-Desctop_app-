@@ -1,32 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: ffff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuAdminController">
+<AnchorPane id="AnchorPane" prefHeight="604.0" prefWidth="723.0" style="-fx-background-color: #FCFAE1;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuAdminController">
    <children>
-      <Button fx:id="interface_admins" layoutX="177.0" layoutY="200.0" mnemonicParsing="false" onAction="#accéderàpatisseries" prefHeight="59.0" prefWidth="247.0" style="-fx-background-color: e7c6dc;" text="Gérer les patisseries" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="menu" layoutX="153.0" layoutY="37.0" prefHeight="42.0" prefWidth="354.0" text="          Menu Client" textFill="INDIANRED">
          <font>
-            <Font name="System Bold" size="18.0" />
-         </font></Button>
-      <ImageView fitHeight="115.0" fitWidth="600.0" pickOnBounds="true">
-         <image>
-            <Image url="@Pink..PNG" />
-         </image>
-      </ImageView>
-      <Text fill="WHITE" layoutX="176.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Espace Admin" textAlignment="CENTER" wrappingWidth="247.13671875">
-         <font>
-            <Font name="Mistral" size="53.0" />
+            <Font name="Arial Bold" size="36.0" />
          </font>
-      </Text>
-      <ImageView fitHeight="115.0" fitWidth="128.0" layoutX="27.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@pipi.png" />
-         </image>
-      </ImageView>
+      </Label>
+      <Button layoutX="276.0" layoutY="501.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #cd5c5c;" text="Retour" textFill="#fcfae1">
+         <font>
+            <Font name="Arial Bold" size="21.0" />
+         </font>
+      </Button>
+      <Button layoutX="192.0" layoutY="433.0" mnemonicParsing="false" onAction="#consulterMonCompte" prefHeight="39.0" prefWidth="315.0" style="-fx-background-color: #cd5c5c;" text="Consulter mon compte" textFill="#fcfae1">
+         <font>
+            <Font name="Arial Bold" size="21.0" />
+         </font>
+      </Button>
+      <Pane layoutX="191.0" layoutY="119.0" prefHeight="258.0" prefWidth="278.0" style="-fx-background-color: #FFA07A;">
+         <children>
+            <Button fx:id="patisserie_client" layoutX="9.0" layoutY="129.0" mnemonicParsing="false" onAction="#patisserie_client" prefHeight="25.0" prefWidth="261.0" style="-fx-background-color: #FCFAE1;" text="Gérer les patisseries" textFill="#861212">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="48.0" layoutY="20.0" prefHeight="42.0" prefWidth="197.0" text="Patisseries" textFill="#861212">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

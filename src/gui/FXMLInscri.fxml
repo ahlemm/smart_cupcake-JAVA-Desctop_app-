@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="752.0" style="-fx-border-color: #ef8202; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLInscriController">
+   <children>
+      <Label layoutX="411.0" layoutY="489.0" text="login">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <TextField fx:id="login" layoutX="497.0" layoutY="484.0" prefHeight="36.0" prefWidth="160.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></TextField>
+      <Button fx:id="inscrire" layoutX="236.0" layoutY="530.0" mnemonicParsing="false" onAction="#inscrire" prefHeight="45.0" prefWidth="232.0" text="s'inscrire" />
+      <TableView fx:id="tabview" layoutY="206.0" prefHeight="383.0" prefWidth="675.0" visible="false">
+        <columns>
+          <TableColumn fx:id="date_debut" prefWidth="75.0" text="date_debut" />
+          <TableColumn fx:id="date_fin" prefWidth="75.0" text="date_fin" />
+            <TableColumn fx:id="nbr_participant" prefWidth="95.0" text="nbr_participant" />
+            <TableColumn fx:id="info_formation" prefWidth="95.0" text="info_formation" />
+            <TableColumn fx:id="date_fin_inscription" prefWidth="115.0" text="date_fin_inscription" />
+            <TableColumn fx:id="nbr_heures" prefWidth="75.0" text="nbr_heures" />
+            <TableColumn fx:id="Id_formation" prefWidth="101.0" text="id_formation" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="info" layoutX="369.0" layoutY="121.0" prefHeight="36.0" prefWidth="160.0" />
+      <TextField fx:id="debud" disable="true" layoutX="152.0" layoutY="198.0" prefHeight="70.0" prefWidth="168.0" style="-fx-background-color: #f1af64;">
+         <font>
+            <Font name="System Italic" size="24.0" />
+         </font></TextField>
+      <TextField fx:id="fin" disable="true" layoutX="365.0" layoutY="198.0" prefHeight="70.0" prefWidth="168.0" style="-fx-background-color: #f1af64;">
+         <font>
+            <Font name="System Italic" size="24.0" />
+         </font></TextField>
+      <TextField fx:id="nbrP" disable="true" layoutX="480.0" layoutY="294.0" prefHeight="79.0" prefWidth="168.0" style="-fx-background-color: #f1af64;">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font></TextField>
+      <TextField fx:id="fin_inscription" disable="true" layoutX="281.0" layoutY="404.0" prefHeight="70.0" prefWidth="160.0" style="-fx-background-color: #f1af64;">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font></TextField>
+      <TextField fx:id="nbrh" disable="true" layoutX="68.0" layoutY="298.0" prefHeight="70.0" prefWidth="168.0" style="-fx-background-color: #f1af64;">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font></TextField>
+      <Label layoutX="100.0" layoutY="121.0" prefHeight="36.0" prefWidth="232.0" text="Choisissez votre formation:" textFill="#ef8202">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="form" layoutX="391.0" layoutY="285.0" visible="false" />
+      <Label layoutX="163.0" layoutY="6.0" prefHeight="60.0" prefWidth="377.0" text="Inscrivez Vous !" textAlignment="CENTER" textFill="#10e341">
+         <font>
+            <Font name="AR CHRISTY" size="48.0" />
+         </font>
+         <effect>
+            <Reflection />
+         </effect>
+      </Label>
+      <Label layoutX="408.0" layoutY="161.0" text="Date de fin">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="179.0" layoutY="161.0" text="Date de debut">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="91.0" layoutY="272.0" text="Nombre d'heures">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="460.0" layoutY="264.0" text="Nombre des participants">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="257.0" layoutY="373.0" text="Date de fin de l'inscription">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -27,6 +27,10 @@ public class MenuPatissierController implements Initializable {
 
     @FXML
     private Button gerer_mespatisserie;
+    @FXML
+    private Button formation_page;
+    @FXML
+    private Button promotions_page;
 
     /**
      * Initializes the controller class.
@@ -47,6 +51,24 @@ public class MenuPatissierController implements Initializable {
     @FXML
     private void gerer_mespatisserie(ActionEvent event) throws IOException {
          FXMLLoader loader = new FXMLLoader(getClass().getResource("AjoutPat.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
+    }
+
+    @FXML
+    private void formation_page(ActionEvent event) throws IOException { FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLCrud.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
+    }
+
+    @FXML
+    private void promotions_page(ActionEvent event) throws IOException { FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLPromo.fxml"));
             Parent root = loader.load();
            Scene homePageScene=new Scene(root); 
            Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 

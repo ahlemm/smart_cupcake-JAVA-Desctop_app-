@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="844.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLCrudController">
+   <children>
+      <Label layoutX="13.0" layoutY="17.0" prefHeight="17.0" prefWidth="80.0" text="date_debut" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="13.0" layoutY="50.0" prefHeight="19.0" prefWidth="68.0" text="date_fin" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="13.0" layoutY="83.0" text="nbr_participant" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="14.0" layoutY="117.0" text="info_formation" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="4.0" layoutY="169.0" text="date_fin_inscription" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="372.0" layoutY="26.0" text="nbr_heures" underline="true">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <TextField fx:id="nbr_participant" layoutX="125.0" layoutY="80.0" />
+      <TextField fx:id="nbr_heures" layoutX="461.0" layoutY="22.0" />
+      <TextField fx:id="info_formation" layoutX="125.0" layoutY="114.0" />
+      <DatePicker fx:id="date_debut" layoutX="112.0" layoutY="10.0" />
+      <DatePicker fx:id="date_fin" layoutX="112.0" layoutY="47.0" />
+      <DatePicker fx:id="date_fin_inscription" layoutX="125.0" layoutY="166.0" />
+      <Button fx:id="ajouter" layoutX="434.0" layoutY="67.0" mnemonicParsing="false" onAction="#ajouter" text="ajouter" textFill="#e10a7d">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <TableView fx:id="tableview" layoutX="-4.0" layoutY="220.0" prefHeight="389.0" prefWidth="769.0">
+        <columns>
+            <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
+            <TableColumn fx:id="date" prefWidth="75.0" text="date_debut" />
+            <TableColumn fx:id="datee" prefWidth="75.0" text="date_fin" />
+            <TableColumn fx:id="Nbr_participant" prefWidth="94.0" text="nbr_participant" />
+            <TableColumn fx:id="Info_formation" prefWidth="96.0" text="info_formation" />
+            <TableColumn fx:id="dateee" prefWidth="118.0" text="date_fin_inscription" />
+            <TableColumn fx:id="Nbr_heures" prefWidth="75.0" text="nbr_heures" />
+            <TableColumn fx:id="Id_formation" prefWidth="75.0" text="id_formation" visible="false" />
+        </columns>
+      </TableView>
+      <Button fx:id="annuler" layoutX="536.0" layoutY="67.0" mnemonicParsing="false" onAction="#annuler" text="annuler" textFill="#e10e74">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="modifier" layoutX="428.0" layoutY="67.0" mnemonicParsing="false" onAction="#modifier" text="modifier" textFill="#db0f9b">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="fb" layoutX="604.0" layoutY="157.0" mnemonicParsing="false" onAction="#fb" text="Partager sur facebook" />
+   </children>
+</AnchorPane>

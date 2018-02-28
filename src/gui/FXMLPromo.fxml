@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="584.0" prefWidth="800.0" style="-fx-border-color: red; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLPromoController">
+   <children>
+      <TableView fx:id="tab" layoutX="14.0" layoutY="150.0" prefHeight="178.0" prefWidth="344.0" style="-fx-border-color: blue;">
+        <columns>
+          <TableColumn fx:id="id_produit" prefWidth="75.0" text="id_produit" visible="false" />
+          <TableColumn fx:id="prix_produit" prefWidth="167.0" text="prix_produit" />
+            <TableColumn fx:id="nom_produit" prefWidth="174.0" text="nom_produit" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tab1" layoutX="14.0" layoutY="336.0" prefHeight="214.0" prefWidth="344.0" style="-fx-border-color: blue;">
+        <columns>
+          <TableColumn fx:id="nom" prefWidth="89.0" text="nom_produit" />
+          <TableColumn fx:id="prixP" prefWidth="82.0" text="prix_produit" />
+            <TableColumn fx:id="pourcentage" prefWidth="81.0" text="pourcentage" />
+            <TableColumn fx:id="nv_prix" prefWidth="69.0" text="nv_prix" />
+            <TableColumn fx:id="id" prefWidth="75.0" text="id" visible="false" />
+        </columns>
+      </TableView>
+      <Pane fx:id="pane" layoutX="417.0" layoutY="174.0" prefHeight="252.0" prefWidth="282.0">
+         <children>
+            <Label layoutX="16.0" layoutY="14.0" prefHeight="41.0" prefWidth="251.0" text="nouveau Prix" textAlignment="CENTER" textFill="#ee0808">
+               <font>
+                  <Font name="Forte" size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="nouveau_prix" layoutX="23.0" layoutY="84.0" prefHeight="103.0" prefWidth="191.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <Blend>
+               <topInput>
+                  <GaussianBlur />
+               </topInput>
+            </Blend>
+         </effect>
+      </Pane>
+      <Label layoutX="118.0" layoutY="-6.0" prefHeight="156.0" prefWidth="470.0" text="   Promotion" textFill="#570af2">
+         <font>
+            <Font name="Curlz MT" size="72.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.94" />
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

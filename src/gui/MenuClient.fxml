@@ -20,7 +20,7 @@
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="12.0" layoutY="210.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="278.0" style="-fx-background-color: #FCFAE1;" text="Consulter les promotions" textFill="#861212">
+            <Button fx:id="promotion_page" layoutX="12.0" layoutY="210.0" mnemonicParsing="false" onAction="#promotion_page" prefHeight="25.0" prefWidth="278.0" style="-fx-background-color: #FCFAE1;" text="Consulter les promotions" textFill="#861212">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>

@@ -8,7 +8,7 @@ package gui;
 import entite.Patisserie;
 import entite.User;
 import service.ServicePatisserie;
-import service.ServiceUser; 
+import service.ServiceUser;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -46,9 +46,10 @@ import javafx.util.Duration;
  * @author Mdin Ahlem
  */
 public class AffichageController implements Initializable {
-ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
+
+    ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
     @FXML
-    
+
     private TableView<Patisserie> listPatisserie;
     @FXML
     private TableColumn<?, ?> id_patisserie;
@@ -106,164 +107,148 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
      * Initializes the controller class.
      */
     @Override
-   public void initialize(URL url, ResourceBundle rb) {
-		
-		getAllPatisseries();
-                getAllPatisserieApprouved();
-               getAllPatisserieNonApprouved();
-               getAllPatisserieàEtudier();
-       //       approuver();
-                
-               
+    public void initialize(URL url, ResourceBundle rb) {
+
+        getAllPatisseries();
+        getAllPatisserieApprouved();
+        getAllPatisserieNonApprouved();
+        getAllPatisserieàEtudier();
+        //       approuver();
+
 //loadPatisserieList();
-                //initChamps();
-	}
-   
-   
-   
-   
-   
-   
-	
-@FXML
-	private void getAllPatisseries(){
-	 
-		 
-		id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
-		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
-		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
-		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
-                id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
+        //initChamps();
+    }
 
-                
-   ServicePatisserie sp = new ServicePatisserie();
- listPat= sp. getAllPatisseries();
-       listPatisserie.setItems(listPat);
-       label3.setText("" ) ;
-	}
+    @FXML
+    private void getAllPatisseries() {
+
+        id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
+        nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
+        activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
+        info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
+        adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
+        id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
+
+        ServicePatisserie sp = new ServicePatisserie();
+        listPat = sp.getAllPatisseries();
+        listPatisserie.setItems(listPat);
+        label3.setText("");
+    }
 //	
-       	
-@FXML 
-        private void getAllPatisserieApprouved(){
-	 
-		 
-		id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
-		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
-		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
-		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
-               id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
 
-                
-                     ServicePatisserie sp = new ServicePatisserie();
-  listPat= sp. getAllPatisserieApprouved();
-       listPatisserie.setItems(listPat);
-        label3.setText("" ) ;
-	}
     @FXML
-         private void getAllPatisserieNonApprouved() {
-             
-             id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
-		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
-		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
-		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
-               id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
+    private void getAllPatisserieApprouved() {
 
-                
-                     ServicePatisserie sp = new ServicePatisserie();
-  listPat= sp. getAllPatisserieNonApprouved();
-       listPatisserie.setItems(listPat);
-              label3.setText("" ) ;
-             
+        id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
+        nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
+        activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
+        info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
+        adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
+        id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
+
+        ServicePatisserie sp = new ServicePatisserie();
+        listPat = sp.getAllPatisserieApprouved();
+        listPatisserie.setItems(listPat);
+        label3.setText("");
     }
-        
+
     @FXML
-            private void getAllPatisserieàEtudier() {
-             
-             id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
-		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
-		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
-		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
-                  id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
+    private void getAllPatisserieNonApprouved() {
 
-                
-                     ServicePatisserie sp = new ServicePatisserie();
-  listPat= sp. getAllPatisserieàEtudier();
-       listPatisserie.setItems(listPat);
-              label3.setText("" ) ;
-             
+        id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
+        nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
+        activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
+        info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
+        adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
+        id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
+
+        ServicePatisserie sp = new ServicePatisserie();
+        listPat = sp.getAllPatisserieNonApprouved();
+        listPatisserie.setItems(listPat);
+        label3.setText("");
+
     }
-@FXML
+
+    @FXML
+    private void getAllPatisserieàEtudier() {
+
+        id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
+        nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
+        activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
+        info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
+        adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
+        id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
+
+        ServicePatisserie sp = new ServicePatisserie();
+        listPat = sp.getAllPatisserieàEtudier();
+        listPatisserie.setItems(listPat);
+        label3.setText("");
+
+    }
+
+    @FXML
     private void supprimer(ActionEvent event) throws SQLException {
         ServicePatisserie sp = new ServicePatisserie();
-      
-       listPatisserie.setEditable(true);
-       int selectedIndex=listPatisserie.getSelectionModel().getSelectedIndex();
-     
-       Patisserie p = listPatisserie.getSelectionModel().getSelectedItem();
-    
- 
-  if(selectedIndex >=0) {
-           listPatisserie.getItems().remove(selectedIndex);
-              sp.supprimer(p.getId_patisserie());
-               label3.setText("patisserie supprimée" ) ;
-                PauseTransition pauseTransition = new PauseTransition(Duration.seconds(2));
-                 pauseTransition.setOnFinished(i -> label3.setText(""));
-            }
-       else{
-           Alert alert= new Alert(AlertType.WARNING);
-           alert.setTitle("No Selection");
-           alert.setHeaderText("No Patisserie Selected");
-           alert.setContentText("Please select a patisserie in the table");
-           alert.showAndWait();
-         
-       }
-   
+
+        listPatisserie.setEditable(true);
+        int selectedIndex = listPatisserie.getSelectionModel().getSelectedIndex();
+
+        Patisserie p = listPatisserie.getSelectionModel().getSelectedItem();
+
+        if (selectedIndex >= 0) {
+            listPatisserie.getItems().remove(selectedIndex);
+            sp.supprimer(p.getId_patisserie());
+            label3.setText("patisserie supprimée");
+            PauseTransition pauseTransition = new PauseTransition(Duration.seconds(2));
+            pauseTransition.setOnFinished(i -> label3.setText(""));
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Patisserie Selected");
+            alert.setContentText("Please select a patisserie in the table");
+            alert.showAndWait();
+
+        }
+
     }
-   @FXML
+
+    @FXML
     private void updatePatisserie(ActionEvent event) {
-     
-        
+
         ServicePatisserie sp = new ServicePatisserie();
-       
-       listPatisserie.setEditable(true);
-       int selectedIndex=listPatisserie.getSelectionModel().getSelectedIndex();
-     
-       Patisserie p = listPatisserie.getSelectionModel().getSelectedItem();
-      
-  if(selectedIndex >=0 ) {
-        
-                  //   sp.ModifierPatisserie(p);
-           if (nom_pat.getText().equals("")|| activite_pat.getText().equals("")|| info_pat.getText().equals("")||adresse_pat.getText().equals("") )
-         {                 label3.setText("veuillez remplir tous les champs" ) ;}
 
-         else { sp.updatePatisserie(p.getId_patisserie(),nom_pat.getText(),activite_pat.getText(),info_pat.getText(),adresse_pat.getText());
-            
-		getAllPatisseries();
-                 label3.setText("modification avec succées" ) ;
-                 PauseTransition pauseTransition = new PauseTransition(Duration.seconds(1));
- pauseTransition.setOnFinished(x -> label3.setText(""));
- pauseTransition.play();
-               nom_pat.setText("");
-               activite_pat.setText("");
-               info_pat.setText("");
-               adresse_pat.setText("");
+        listPatisserie.setEditable(true);
+        int selectedIndex = listPatisserie.getSelectionModel().getSelectedIndex();
 
-               
-            }}
-           else{
-           Alert alert= new Alert(AlertType.WARNING);
-              alert.setTitle("Pas de Selection");
-           alert.setHeaderText("vous n'avez pas sélectionner une Patisserie !");
-           alert.setContentText("veuillez sélectionner une patisserie dans la table");
-           alert.showAndWait(); }
-         
-       
-    
-         
+        Patisserie p = listPatisserie.getSelectionModel().getSelectedItem();
+
+        if (selectedIndex >= 0) {
+
+            //   sp.ModifierPatisserie(p);
+            if (nom_pat.getText().equals("") || activite_pat.getText().equals("") || info_pat.getText().equals("") || adresse_pat.getText().equals("")) {
+                label3.setText("veuillez remplir tous les champs");
+            } else {
+                sp.updatePatisserie(p.getId_patisserie(), nom_pat.getText(), activite_pat.getText(), info_pat.getText(), adresse_pat.getText());
+
+                getAllPatisseries();
+                label3.setText("modification avec succées");
+                PauseTransition pauseTransition = new PauseTransition(Duration.seconds(1));
+                pauseTransition.setOnFinished(x -> label3.setText(""));
+                pauseTransition.play();
+                nom_pat.setText("");
+                activite_pat.setText("");
+                info_pat.setText("");
+                adresse_pat.setText("");
+
+            }
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Pas de Selection");
+            alert.setHeaderText("vous n'avez pas sélectionner une Patisserie !");
+            alert.setContentText("veuillez sélectionner une patisserie dans la table");
+            alert.showAndWait();
+        }
+
     }
 // @FXML
 //    private void approuver(ActionEvent event) {
@@ -295,88 +280,82 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
 
     @FXML
     private void approuver(ActionEvent event) {
-        
-        
-    
- ServicePatisserie sp = new ServicePatisserie();
-      //  int x ;
-       listPatisserie.setEditable(true);
-       int selectedIndex=listPatisserie.getSelectionModel().getSelectedIndex();
-     
-       Patisserie p = listPatisserie.getSelectionModel().getSelectedItem();
-  //x=p.getId_patisserie();
-      
-  if(selectedIndex >=0) {
-           listPatisserie.getItems().remove(selectedIndex);
-            
-		
-              sp.approuver(p.getId_patisserie());
-               label3.setText("" ) ;
-                getAllPatisserieApprouved();
-            }
-       else{
-           Alert alert= new Alert(AlertType.WARNING);
-               alert.setTitle("Pas de Selection");
-           alert.setHeaderText("vous n'avez pas sélectionner une Patisserie !");
-           alert.setContentText("veuillez sélectionner une patisserie dans la table");
-           alert.showAndWait();
-         
-       }
-   
+
+        ServicePatisserie sp = new ServicePatisserie();
+        //  int x ;
+        listPatisserie.setEditable(true);
+        int selectedIndex = listPatisserie.getSelectionModel().getSelectedIndex();
+
+        Patisserie p = listPatisserie.getSelectionModel().getSelectedItem();
+        //x=p.getId_patisserie();
+
+        if (selectedIndex >= 0) {
+            listPatisserie.getItems().remove(selectedIndex);
+
+            sp.approuver(p.getId_patisserie());
+            label3.setText("");
+            getAllPatisserieApprouved();
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Pas de Selection");
+            alert.setHeaderText("vous n'avez pas sélectionner une Patisserie !");
+            alert.setContentText("veuillez sélectionner une patisserie dans la table");
+            alert.showAndWait();
+
+        }
+
     }
 
     @FXML
     private void etudier(ActionEvent event) {
-        
+
         ServicePatisserie sp = new ServicePatisserie();
         //int x ;
-       listPatisserie.setEditable(true);
-       int selectedIndex=listPatisserie.getSelectionModel().getSelectedIndex();
-     
-       Patisserie p = listPatisserie.getSelectionModel().getSelectedItem();
-  //x=p.getId_patisserie();
-      
-  if(selectedIndex >=0) {
-           listPatisserie.getItems().remove(selectedIndex);
-            
-		
-              sp.etudier(p.getId_patisserie());
-                getAllPatisserieàEtudier(); 
-                label3.setText("" ) ;
-            }
-       else{
-           Alert alert= new Alert(AlertType.WARNING);
-           alert.setTitle("Pas de Selection");
-           alert.setHeaderText("vous n'avez pas sélectionner une Patisserie !");
-           alert.setContentText("veuillez sélectionner une patisserie dans la table");
-           alert.showAndWait();
-         
-       }
-        
-        
-        
+        listPatisserie.setEditable(true);
+        int selectedIndex = listPatisserie.getSelectionModel().getSelectedIndex();
+
+        Patisserie p = listPatisserie.getSelectionModel().getSelectedItem();
+        //x=p.getId_patisserie();
+
+        if (selectedIndex >= 0) {
+            listPatisserie.getItems().remove(selectedIndex);
+
+            sp.etudier(p.getId_patisserie());
+            getAllPatisserieàEtudier();
+            label3.setText("");
+        } else {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Pas de Selection");
+            alert.setHeaderText("vous n'avez pas sélectionner une Patisserie !");
+            alert.setContentText("veuillez sélectionner une patisserie dans la table");
+            alert.showAndWait();
+
+        }
+
     }
 
     @FXML
     private void getPatisseriesByidPatissier(ActionEvent event) {
-        
+
         ServicePatisserie sp = new ServicePatisserie();
         // int x ;
-       listPatisserie.setEditable(true);
-       
-        id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
-		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
-		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
-		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
-                  id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
+        listPatisserie.setEditable(true);
 
-  // x=Integer.parseInt(rechercher.getText())  ;      
-   if(rechercher.getText().equals("")) {label3.setText("veuillez selectionnez id(patisserie/patissier)");}
-  else 
-   { listPat= sp.getPatisseriesByidPatissier(Integer.parseInt(rechercher.getText()));
-       listPatisserie.setItems(listPat);
-        label3.setText("" ) ;}
+        id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
+        nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
+        activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
+        info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
+        adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
+        id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
+
+        // x=Integer.parseInt(rechercher.getText())  ;      
+        if (rechercher.getText().equals("")) {
+            label3.setText("veuillez selectionnez id(patisserie/patissier)");
+        } else {
+            listPat = sp.getPatisseriesByidPatissier(Integer.parseInt(rechercher.getText()));
+            listPatisserie.setItems(listPat);
+            label3.setText("");
+        }
 //       int selectedIndex=listPatisserie.getSelectionModel().getSelectedIndex();
 //     
 //    //   Patisserie p = listPatisserie.getSelectionModel().getSelectedItem();
@@ -391,64 +370,44 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
 //            sp.getPatisseriesByidPatissier(x);
 //            
 //		// getAllPatisseries();
-            
-       
-        
-    }
 
-    
+    }
 
     @FXML
     private void page_précédente(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuAdmin.fxml"));
-            Parent root = loader.load();
-           Scene homePageScene=new Scene(root); 
-           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
-           appStage.setScene(homePageScene); 
-           appStage.show();
-        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuAdmin.fxml"));
+        Parent root = loader.load();
+        Scene homePageScene = new Scene(root);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(homePageScene);
+        appStage.show();
+
     }
 
     @FXML
     private void search_nom(ActionEvent event) {
-        
-        
-           ServicePatisserie sp = new ServicePatisserie();
-        int x ;
-       listPatisserie.setEditable(true);
-        
-          id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
-		nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
-		activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
-		info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
-		adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
-                  id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
 
-  // x=Integer.parseInt(rechercher.getText())  ;             
-    if(rechercher.getText().equals("")) {label3.setText("veuillez selectionnez id(patisserie/patissier)");}
+        ServicePatisserie sp = new ServicePatisserie();
+        int x;
+        listPatisserie.setEditable(true);
 
-    else {listPat= sp.search_nom(rechercher.getText() );
-       listPatisserie.setItems(listPat);
-        label3.setText("" ) ;
+        id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
+        nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
+        activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
+        info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
+        adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
+        id_patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
+
+        // x=Integer.parseInt(rechercher.getText())  ;             
+        if (rechercher.getText().equals("")) {
+            label3.setText("veuillez selectionnez id(patisserie/patissier)");
+        } else {
+            listPat = sp.search_nom(rechercher.getText());
+            listPatisserie.setItems(listPat);
+            label3.setText("");
+        }
     }
 }
-}  
-        
-        
-        
-        
-        
-        
-        
-        
-   
-
-   
-            
-        
-
-
-
 
 //    private void approuver() {
 //   ServicePatisserie sp = new ServicePatisserie();
@@ -476,23 +435,4 @@ ObservableList<Patisserie> listPat = FXCollections.observableArrayList();
 //           alert.showAndWait();
 //         
 //       }
-        
 
-   
-
-
-    
- 
-
-
-
-
-
-
-
-
-
-
-
-
-    
