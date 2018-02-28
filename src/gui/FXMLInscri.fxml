@@ -92,5 +92,10 @@
             <Font name="System Bold Italic" size="18.0" />
          </font>
       </Label>
+      <Button fx:id="retourinscri2" contentDisplay="RIGHT" defaultButton="true" layoutX="28.0" layoutY="25.0" mnemonicParsing="false" onAction="#retourinscri2" style="-fx-background-color: #e9967a;" text="Retour" textAlignment="JUSTIFY">
+         <font>
+            <Font name="Cooper Black" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
