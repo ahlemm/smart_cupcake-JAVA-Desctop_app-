@@ -62,11 +62,22 @@ public class MenuAdminController implements Initializable {
     }
 
     @FXML
-    private void consulterMonCompte(ActionEvent event) {
+    private void consulterMonCompte(ActionEvent event)  throws IOException 
+    {FXMLLoader loader = new FXMLLoader(getClass().getResource("Compte.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
     }
 
     @FXML
-    private void patisserie_client(ActionEvent event) {
+    private void patisserie_client(ActionEvent event) throws IOException {FXMLLoader loader = new FXMLLoader(getClass().getResource("affichage.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
     }
 
     @FXML

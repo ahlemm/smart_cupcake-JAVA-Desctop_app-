@@ -31,6 +31,8 @@ public class MenuPatissierController implements Initializable {
     private Button formation_page;
     @FXML
     private Button promotions_page;
+    @FXML
+    private Button retourauthentif;
 
     /**
      * Initializes the controller class.
@@ -41,11 +43,21 @@ public class MenuPatissierController implements Initializable {
     }    
 
     @FXML
-    private void deconecter(ActionEvent event) {
+    private void deconecter(ActionEvent event) throws IOException { FXMLLoader loader = new FXMLLoader(getClass().getResource("Authentification.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
     }
 
     @FXML
-    private void consulterMonCompte(ActionEvent event) {
+    private void consulterMonCompte(ActionEvent event) throws IOException { FXMLLoader loader = new FXMLLoader(getClass().getResource("Compte.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
     }
 
     @FXML

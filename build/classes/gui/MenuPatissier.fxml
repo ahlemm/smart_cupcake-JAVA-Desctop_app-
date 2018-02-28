@@ -2,20 +2,42 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuPatissierController">
+<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuPatissierController">
    <children>
-      <Button layoutX="237.0" layoutY="262.0" mnemonicParsing="false" onAction="#deconecter" prefHeight="25.0" prefWidth="101.0" text="deconnecter" />
-      <Button layoutX="191.0" layoutY="158.0" mnemonicParsing="false" onAction="#consulterMonCompte" prefHeight="25.0" prefWidth="192.0" text="Consulter mon compte" />
-      <Label layoutX="99.0" layoutY="9.0" prefHeight="76.0" prefWidth="386.0" text="   Menu Patissier">
+      <Button fx:id="retourauthentif" layoutX="237.0" layoutY="307.0" mnemonicParsing="false" onAction="#deconecter" prefHeight="25.0" prefWidth="101.0" text="deconnecter" textFill="#b385c5" />
+      <Button layoutX="204.0" layoutY="186.0" mnemonicParsing="false" onAction="#consulterMonCompte" prefHeight="25.0" prefWidth="192.0" text="Consulter mon compte" textFill="#b385c5" />
+      <Button fx:id="gerer_mespatisserie" layoutX="204.0" layoutY="148.0" mnemonicParsing="false" onAction="#gerer_mespatisserie" prefHeight="25.0" prefWidth="192.0" text="Gérer mes patisseries" textFill="#b385c5" />
+      <Button fx:id="formation_page" layoutX="204.0" layoutY="228.0" mnemonicParsing="false" onAction="#formation_page" prefHeight="25.0" prefWidth="192.0" text="Gérer les Formations" textFill="#b385c5" />
+      <Button fx:id="promotions_page" layoutX="204.0" layoutY="269.0" mnemonicParsing="false" onAction="#promotions_page" prefHeight="25.0" prefWidth="192.0" text="Gérer les Promotions" textFill="#b385c5" />
+      <ImageView fitHeight="76.0" fitWidth="793.0" layoutX="2.0" pickOnBounds="true">
+         <image>
+            <Image url="@Pink..PNG" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="56.0" fitWidth="65.0" layoutX="25.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@pipi.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="173.0" prefHeight="76.0" prefWidth="386.0" text="   Menu Patissier" textFill="WHITE">
          <font>
-            <Font name="Arial Bold" size="39.0" />
+            <Font name="Chiller" size="48.0" />
          </font>
       </Label>
-      <Button fx:id="gerer_mespatisserie" layoutX="188.0" layoutY="114.0" mnemonicParsing="false" onAction="#gerer_mespatisserie" prefHeight="34.0" prefWidth="192.0" text="Gérer mes patisseries" />
-      <Button fx:id="formation_page" layoutX="192.0" layoutY="190.0" mnemonicParsing="false" onAction="#formation_page" prefHeight="25.0" prefWidth="192.0" text="Gérer les Formations" />
-      <Button fx:id="promotions_page" layoutX="196.0" layoutY="226.0" mnemonicParsing="false" onAction="#promotions_page" prefHeight="25.0" prefWidth="192.0" text="Gérer les Promotions" />
+      <ImageView fitHeight="149.0" fitWidth="113.0" layoutX="25.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gat.jpg" />
+         </image>
+         <effect>
+            <Reflection />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
