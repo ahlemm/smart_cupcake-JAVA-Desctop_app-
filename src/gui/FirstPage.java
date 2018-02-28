@@ -18,7 +18,7 @@ public class FirstPage extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         
-            Parent root = FXMLLoader.load(getClass().getResource("AffichageReclamation.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Compte.fxml"));
         Scene scene = new Scene(root);
          
         primaryStage.setTitle("admin");

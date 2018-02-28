@@ -35,6 +35,11 @@
                   <Font name="Arial Bold" size="28.0" />
                </font>
             </Label>
+            <Button fx:id="ingredient1" layoutX="9.0" layoutY="172.0" mnemonicParsing="false" onAction="#gestion_ingr" prefHeight="25.0" prefWidth="261.0" style="-fx-background-color: #FCFAE1;" text="Gérer les ingrédients" textFill="#861212">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

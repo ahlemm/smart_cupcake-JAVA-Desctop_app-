@@ -27,7 +27,11 @@ import javafx.stage.Stage;
 public class MenuAdminController implements Initializable {
 
     @FXML
-    private Button interface_admins;
+    private Label menu;
+    @FXML
+    private Button patisserie_client;
+    @FXML
+    private Button ingredient1;
 
     /**
      * Initializes the controller class.
@@ -37,7 +41,6 @@ public class MenuAdminController implements Initializable {
         // TODO
     }    
 
-    @FXML
     private void accéderàpatisseries(ActionEvent event) throws IOException {
         
         
@@ -52,6 +55,28 @@ public class MenuAdminController implements Initializable {
 
         
         
+    }
+
+    @FXML
+    private void retour(ActionEvent event) {
+    }
+
+    @FXML
+    private void consulterMonCompte(ActionEvent event) {
+    }
+
+    @FXML
+    private void patisserie_client(ActionEvent event) {
+    }
+
+    @FXML
+    private void gestion_ingr(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("crudIngredientFXML.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
     }
 
     

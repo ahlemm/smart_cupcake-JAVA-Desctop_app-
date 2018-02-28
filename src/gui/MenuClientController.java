@@ -32,6 +32,10 @@ public class MenuClientController implements Initializable {
     private Button patisserie_client;
     @FXML
     private Button promotion_page;
+    @FXML
+    private Button recetteClient;
+    @FXML
+    private Button inscriForma;
 
     /**
      * Initializes the controller class.
@@ -105,6 +109,27 @@ public class MenuClientController implements Initializable {
 
     @FXML
     private void promotion_page(ActionEvent event) throws IOException { FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLPromotion.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
+    }
+
+    @FXML
+    private void gestion_recette2(ActionEvent event) throws IOException {
+        
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("crudRecetteFXML.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
+    }
+
+    @FXML
+    private void inscriForma(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLInscri.fxml"));
             Parent root = loader.load();
            Scene homePageScene=new Scene(root); 
            Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
