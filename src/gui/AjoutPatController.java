@@ -114,12 +114,20 @@ public class AjoutPatController implements Initializable {
     private Button page_précédente1;
     @FXML
     private ImageView retour33;
+    @FXML
+    private Button deconnecti;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        nom_pat.setPromptText("nom");
+        activite_pat.setPromptText("spetialite");
+        info_pat.setPromptText("info_pat");
+        longitude_pat.setText("0.0");
+        latitude_pat.setText("0.0");
+        adresse_pat.setPromptText("adresse");
 
 //</editor-fold>
         // TODO
@@ -135,30 +143,27 @@ public class AjoutPatController implements Initializable {
         Patisserie p = (Patisserie) listPatisserie1.getSelectionModel().getSelectedItem();
         //x=p.getId_patisserie();
 
-        if (selectedIndex >= 0) {
-            String l = p.getLongitude().toString();
-            String n = p.getLatitude().toString();
-            System.out.println(l);
-            nom_pat.setText(p.getNom_patisserie());
-            activite_pat.setText(p.getAcitivite());
-            info_pat.setText(p.getInfo_patisserie());
-//           longitude.setText(l);
-//            latitude.setText(n);
-            adresse_pat.setText(p.getAdresse_patisserie());
+        if (selectedIndex > 0) {
+            if (nom_pat.getText().equals("") || activite_pat.getText().equals("") || info_pat.getText().equals("") || adresse_pat.getText().equals("")) {
+                label.setText("veuillez remplir tous les champs");
 
-            //   sp.ModifierPatisserie(p);
-            sp.updatePatisserie1(p.getId_patisserie(), nom_pat.getText(), activite_pat.getText(), info_pat.getText(), Double.parseDouble(longitude_pat.getText()), Double.parseDouble(latitude_pat.getText()), adresse_pat.getText());
-            label.setText("modification avec succées");
-            PauseTransition pauseTransition = new PauseTransition(Duration.seconds(1));
-            pauseTransition.setOnFinished(y -> label.setText(""));
-            pauseTransition.play();
-            nom_pat.setText("");
-            activite_pat.setText("");
-            info_pat.setText("");
-            longitude.setText("0");
-            latitude.setText("0");
-            adresse_pat.setText("");
+                //   sp.ModifierPatisserie(p);
+            } else {
+                sp.updatePatisserie1(p.getId_patisserie(), nom_pat.getText(), activite_pat.getText(), info_pat.getText(), Double.parseDouble(longitude_pat.getText()), Double.parseDouble(latitude_pat.getText()), adresse_pat.getText());
+                label.setText("modification avec succées");
 
+                PauseTransition pauseTransition = new PauseTransition(Duration.seconds(3));
+                //     pauseTransition.setOnFinished( x -> label.setText(""));
+                pauseTransition.play();
+                nom_pat.setText("");
+                activite_pat.setText("");
+
+                longitude_pat.setText("0.0");
+                latitude_pat.setText("0.0");
+                info_pat.setText("");
+                adresse_pat.setText("");
+
+            }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Pas de Selection");
@@ -178,12 +183,9 @@ public class AjoutPatController implements Initializable {
         //FXMLLoader loader = new FXMLLoader(getClass().getResource("affichage.fxml"));
 
         Patisserie p = new Patisserie(nom_pat.getText(), activite_pat.getText(), info_pat.getText(), Double.parseDouble(longitude_pat.getText()), Double.parseDouble(latitude_pat.getText()), adresse_pat.getText(), patissier, picture.getText());
-        if (nom_pat.getText().equals("") || activite_pat.getText().equals("") || info_pat.getText().equals("") || (Double.parseDouble(longitude_pat.getText()) == 0D))/*||(Double.parseDouble(longitude_pat.getText())==0D)|| adresse_pat.getText().equals("") )*/ {
-            Alert alert = new Alert(AlertType.WARNING);
-            alert.setTitle("Pas de Selection");
-            alert.setHeaderText("Vous n'avez pas choisi une patisserie");
-            alert.setContentText("Veuillez selectionnner une patisserie ");
-            alert.showAndWait();
+
+        if (nom_pat.getText().equals("") || activite_pat.getText().equals("") || info_pat.getText().equals("") || adresse_pat.getText().equals("")) {
+            label.setText("veuillez remplir tous les champs");
 
         } else {
             sp.ajouterPatisserie(p);
@@ -194,17 +196,19 @@ public class AjoutPatController implements Initializable {
             pauseTransition.play();
             nom_pat.setText("");
             activite_pat.setText("");
+
+            longitude_pat.setText("0.0");
+            latitude_pat.setText("0.0");
             info_pat.setText("");
-            longitude.setText("0");
-            latitude.setText("0");
             adresse_pat.setText("");
-            picture.setText("");
-            ;
+
         }
+        getPatisseriesByidPatissier();
     }
 
     @FXML
     private void getPatisseriesByidPatissier() {
+
         ServicePatisserie sp = new ServicePatisserie();
         int x = patissier.getId_user();
 
@@ -273,6 +277,16 @@ public class AjoutPatController implements Initializable {
     private void page_précédente2(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuPatissier.fxml"));
+        Parent root = loader.load();
+        Scene homePageScene = new Scene(root);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(homePageScene);
+        appStage.show();
+    }
+
+    @FXML
+    private void deconnecti(ActionEvent event) throws IOException {
+          FXMLLoader loader = new FXMLLoader(getClass().getResource("Authentification.fxml"));
         Parent root = loader.load();
         Scene homePageScene = new Scene(root);
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

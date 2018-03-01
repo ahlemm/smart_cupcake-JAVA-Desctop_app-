@@ -73,7 +73,18 @@
       </ImageView>
       <Button fx:id="voir_Map" layoutX="429.0" layoutY="176.0" mnemonicParsing="false" onAction="#voir_map" text="voir Map" textFill="#846a9e" />
       <Button fx:id="page_précédente1" layoutX="34.0" layoutY="513.0" mnemonicParsing="false" onAction="#page_précédente1" prefHeight="25.0" prefWidth="148.0" text="page précédente" textFill="#5d8a53" />
-      <ImageView fx:id="retour33" fitHeight="33.0" fitWidth="22.0" layoutX="42.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="retour33" fitHeight="33.0" fitWidth="22.0" layoutX="41.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@doudichoice.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="deconnecti2" layoutX="34.0" layoutY="538.0" mnemonicParsing="false" onAction="#deconnecti" prefHeight="1.0" prefWidth="148.0" text="déconnecter" textFill="#5d8a53" />
+      <ImageView fx:id="retour331" fitHeight="1.0" fitWidth="22.0" layoutX="52.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@doudichoice.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="retour332" fitHeight="33.0" fitWidth="22.0" layoutX="41.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@doudichoice.png" />
          </image>

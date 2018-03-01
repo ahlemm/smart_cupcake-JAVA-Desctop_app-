@@ -102,12 +102,22 @@ public class AffichageController implements Initializable {
     private TableColumn<?, ?> activite1;
     @FXML
     private ImageView pp;
+    @FXML
+    private Button deconnectii;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+           nom_pat.setPromptText("nom");
+       activite_pat.setPromptText("spetialite");
+      info_pat.setPromptText("info_pat");
+       
+adresse_pat.setPromptText("adresse");
+        
+           
 
         getAllPatisseries();
         getAllPatisserieApprouved();
@@ -133,6 +143,12 @@ public class AffichageController implements Initializable {
         listPat = sp.getAllPatisseries();
         listPatisserie.setItems(listPat);
         label3.setText("");
+        
+        
+         
+        
+        
+        
     }
 //	
 
@@ -171,7 +187,9 @@ public class AffichageController implements Initializable {
 
     @FXML
     private void getAllPatisserieàEtudier() {
-
+ 
+        
+        
         id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
         nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
         activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
@@ -219,10 +237,11 @@ public class AffichageController implements Initializable {
 
         listPatisserie.setEditable(true);
         int selectedIndex = listPatisserie.getSelectionModel().getSelectedIndex();
-
+ 
         Patisserie p = listPatisserie.getSelectionModel().getSelectedItem();
 
         if (selectedIndex >= 0) {
+           
 
             //   sp.ModifierPatisserie(p);
             if (nom_pat.getText().equals("") || activite_pat.getText().equals("") || info_pat.getText().equals("") || adresse_pat.getText().equals("")) {
@@ -232,7 +251,7 @@ public class AffichageController implements Initializable {
 
                 getAllPatisseries();
                 label3.setText("modification avec succées");
-                PauseTransition pauseTransition = new PauseTransition(Duration.seconds(1));
+                PauseTransition pauseTransition = new PauseTransition(Duration.seconds(3));
                 pauseTransition.setOnFinished(x -> label3.setText(""));
                 pauseTransition.play();
                 nom_pat.setText("");
@@ -406,6 +425,16 @@ public class AffichageController implements Initializable {
             listPatisserie.setItems(listPat);
             label3.setText("");
         }
+    }
+
+    @FXML
+    private void deconnectii(ActionEvent event) throws IOException {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("Authentification.fxml"));
+        Parent root = loader.load();
+        Scene homePageScene = new Scene(root);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(homePageScene);
+        appStage.show();
     }
 }
 

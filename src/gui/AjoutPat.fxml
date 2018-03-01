@@ -68,5 +68,6 @@
             <Image url="@doudichoice.png" />
          </image>
       </ImageView>
+      <Button fx:id="deconnecti" layoutX="665.0" layoutY="102.0" mnemonicParsing="false" onAction="#deconnecti" prefHeight="22.0" prefWidth="89.0" text="déconnecter" textFill="#5d8a53" />
    </children>
 </AnchorPane>

@@ -2,92 +2,105 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="604.0" prefWidth="723.0" style="-fx-background-color: #FCFAE1;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuClientController">
+<AnchorPane id="AnchorPane" prefHeight="604.0" prefWidth="723.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuClientController">
    <children>
-      <Pane layoutX="29.0" layoutY="142.0" prefHeight="150.0" prefWidth="301.0" style="-fx-background-color: #FFA07A;">
+      <Pane layoutX="36.0" layoutY="145.0" prefHeight="141.0" prefWidth="289.0" style="-fx-background-color: f1bbcf;">
          <children>
-            <Button layoutX="12.0" layoutY="46.0" mnemonicParsing="false" onAction="#consulter" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: #FCFAE1;" text="comsulter les produits  et passer commande" textFill="#861212">
+            <Button layoutX="12.0" layoutY="46.0" mnemonicParsing="false" onAction="#consulter" prefHeight="26.0" prefWidth="248.0" style="-fx-background-color: #FCFAE1;" text="comsulter les produits  et passer commande" textFill="#bd6bc6">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="12.0" layoutY="82.0" mnemonicParsing="false" onAction="#listComd" prefHeight="25.0" prefWidth="278.0" style="-fx-background-color: #FCFAE1;" text="Consulter mes commandes" textFill="#861212">
+            <Button layoutX="12.0" layoutY="82.0" mnemonicParsing="false" onAction="#listComd" prefHeight="25.0" prefWidth="248.0" style="-fx-background-color: #FCFAE1;" text="Consulter mes commandes" textFill="#bd6bc6">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="promotion_page" layoutX="12.0" layoutY="116.0" mnemonicParsing="false" onAction="#promotion_page" prefHeight="25.0" prefWidth="278.0" style="-fx-background-color: #FCFAE1;" text="Consulter les promotions" textFill="#861212">
+            <Button fx:id="promotion_page" layoutX="12.0" layoutY="116.0" mnemonicParsing="false" onAction="#promotion_page" prefHeight="26.0" prefWidth="248.0" style="-fx-background-color: #FCFAE1;" text="Consulter les promotions" textFill="#bd6bc6">
                <font>
                   <Font name="Arial Bold" size="13.0" />
                </font>
             </Button>
-            <Label layoutX="82.0" prefHeight="39.0" prefWidth="136.0" text="Produits" textFill="#861212">
+            <Label layoutX="82.0" prefHeight="39.0" prefWidth="166.0" text="Produits" textFill="#5f2765">
                <font>
-                  <Font name="Arial Bold" size="28.0" />
+                  <Font name="Mistral" size="36.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="368.0" layoutY="276.0" prefHeight="124.0" prefWidth="278.0" style="-fx-background-color: #FA8072;">
+      <Pane layoutX="368.0" layoutY="276.0" prefHeight="124.0" prefWidth="278.0" style="-fx-background-color: f1bbcf;">
          <children>
-            <Button fx:id="recetteClient" layoutX="9.0" layoutY="66.0" mnemonicParsing="false" onAction="#gestion_recette2" prefHeight="25.0" prefWidth="261.0" style="-fx-background-color: #FCFAE1;" text="consulter ou ajouter recettes" textFill="#861212">
+            <Button fx:id="recetteClient" layoutX="22.0" layoutY="66.0" mnemonicParsing="false" onAction="#gestion_recette2" prefHeight="25.0" prefWidth="248.0" style="-fx-background-color: #FCFAE1;" text="consulter ou ajouter recettes" textFill="#bd6bc6">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="67.0" layoutY="14.0" prefHeight="42.0" prefWidth="197.0" text="Recettes" textFill="#861212">
+            <Label layoutX="37.0" layoutY="18.0" prefHeight="39.0" prefWidth="166.0" text="Recettes" textFill="#5f2765">
                <font>
-                  <Font name="Arial Bold" size="28.0" />
+                  <Font name="Mistral" size="36.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Label fx:id="menu" layoutX="153.0" layoutY="37.0" prefHeight="42.0" prefWidth="354.0" text="          Menu Client" textFill="INDIANRED">
-         <font>
-            <Font name="Arial Bold" size="36.0" />
-         </font>
-      </Label>
-      <Button layoutX="276.0" layoutY="501.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #cd5c5c;" text="Retour" textFill="#fcfae1">
+      <Button layoutX="276.0" layoutY="501.0" mnemonicParsing="false" onAction="#retour" opacity="0.85" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #F29CB8;" text="Retour" textFill="#5b216f">
          <font>
             <Font name="Arial Bold" size="21.0" />
          </font>
       </Button>
-      <Button layoutX="192.0" layoutY="433.0" mnemonicParsing="false" onAction="#consulterMonCompte" prefHeight="39.0" prefWidth="315.0" style="-fx-background-color: #cd5c5c;" text="Consulter mon compte" textFill="#fcfae1">
+      <Button layoutX="192.0" layoutY="433.0" mnemonicParsing="false" onAction="#consulterMonCompte" opacity="0.85" prefHeight="39.0" prefWidth="315.0" style="-fx-background-color: #F29CB8;" text="Consulter mon compte" textFill="#5b216f">
          <font>
             <Font name="Arial Bold" size="21.0" />
          </font>
       </Button>
-      <Pane layoutX="368.0" layoutY="142.0" prefHeight="130.0" prefWidth="278.0" style="-fx-background-color: #f17ca7;">
+      <Pane layoutX="368.0" layoutY="148.0" prefHeight="124.0" prefWidth="278.0" style="-fx-background-color: f1bbcf;">
          <children>
-            <Button fx:id="patisserie_client" layoutX="9.0" layoutY="79.0" mnemonicParsing="false" onAction="#patisserie_client" prefHeight="25.0" prefWidth="261.0" style="-fx-background-color: #FCFAE1;" text="consulter les patisseries" textFill="#861212">
+            <Button fx:id="patisserie_client" layoutX="28.0" layoutY="79.0" mnemonicParsing="false" onAction="#patisserie_client" prefHeight="25.0" prefWidth="229.0" style="-fx-background-color: #FCFAE1;" text="consulter les patisseries" textFill="#bd6bc6">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="48.0" layoutY="20.0" prefHeight="42.0" prefWidth="197.0" text="Patisseries" textFill="#9a1a47">
+            <Label layoutX="56.0" layoutY="6.0" prefHeight="39.0" prefWidth="166.0" text="Patisseries" textFill="#5f2765">
                <font>
-                  <Font name="Arial Bold" size="28.0" />
+                  <Font name="Mistral" size="36.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="30.0" layoutY="302.0" prefHeight="102.0" prefWidth="301.0" style="-fx-background-color: #FA8072;">
+      <Pane layoutX="30.0" layoutY="302.0" prefHeight="102.0" prefWidth="301.0" style="-fx-background-color: f1bbcf;">
          <children>
-            <Button fx:id="inscriForma" layoutX="9.0" layoutY="66.0" mnemonicParsing="false" onAction="#inscriForma" prefHeight="25.0" prefWidth="261.0" style="-fx-background-color: #FCFAE1;" text="s'inscrire" textFill="#861212">
+            <Button fx:id="inscriForma" layoutX="22.0" layoutY="66.0" mnemonicParsing="false" onAction="#inscriForma" prefHeight="25.0" prefWidth="248.0" style="-fx-background-color: #FCFAE1;" text="s'inscrire" textFill="#bd6bc6">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="67.0" layoutY="14.0" prefHeight="42.0" prefWidth="197.0" text="Formations" textFill="#861212">
+            <Label layoutX="68.0" prefHeight="39.0" prefWidth="166.0" text="Formations" textFill="#5f2765">
                <font>
-                  <Font name="Arial Bold" size="28.0" />
+                  <Font name="Mistral" size="36.0" />
                </font>
             </Label>
          </children>
       </Pane>
+      <ImageView fitHeight="69.0" fitWidth="771.0" layoutX="7.0" layoutY="-3.0" pickOnBounds="true">
+         <image>
+            <Image url="@Pink..PNG" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="63.0" fitWidth="53.0" layoutX="29.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@pipi.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="128.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu Client" textAlignment="CENTER" wrappingWidth="360.13671875">
+         <font>
+            <Font name="Mistral" size="48.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

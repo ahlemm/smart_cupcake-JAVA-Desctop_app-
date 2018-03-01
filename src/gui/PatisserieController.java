@@ -90,6 +90,12 @@ public class PatisserieController implements Initializable {
     private Button page_précédente1;
     @FXML
     private ImageView retour33;
+    @FXML
+    private Button deconnecti2;
+    @FXML
+    private ImageView retour331;
+    @FXML
+    private ImageView retour332;
 
     /**
      * Initializes the controller class.
@@ -175,6 +181,16 @@ public class PatisserieController implements Initializable {
            Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
            appStage.setScene(homePageScene); 
            appStage.show();
+    }
+
+    @FXML
+    private void deconnecti(ActionEvent event) throws IOException {
+          FXMLLoader loader = new FXMLLoader(getClass().getResource("Authentification.fxml"));
+        Parent root = loader.load();
+        Scene homePageScene = new Scene(root);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(homePageScene);
+        appStage.show();
     }
 
  
