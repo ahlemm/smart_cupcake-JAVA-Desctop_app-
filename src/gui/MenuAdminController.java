@@ -27,11 +27,13 @@ import javafx.stage.Stage;
 public class MenuAdminController implements Initializable {
 
     @FXML
-    private Label menu;
-    @FXML
     private Button patisserie_client;
     @FXML
     private Button ingredient1;
+    @FXML
+    private Button retour_1;
+    @FXML
+    private Button consulterMonCompte;
 
     /**
      * Initializes the controller class.
@@ -57,9 +59,6 @@ public class MenuAdminController implements Initializable {
         
     }
 
-    @FXML
-    private void retour(ActionEvent event) {
-    }
 
     @FXML
     private void consulterMonCompte(ActionEvent event)  throws IOException 
@@ -83,6 +82,16 @@ public class MenuAdminController implements Initializable {
     @FXML
     private void gestion_ingr(ActionEvent event) throws IOException {
          FXMLLoader loader = new FXMLLoader(getClass().getResource("crudIngredientFXML.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
+    }
+
+    @FXML
+    private void retour_1(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Authentification.fxml"));
             Parent root = loader.load();
            Scene homePageScene=new Scene(root); 
            Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 

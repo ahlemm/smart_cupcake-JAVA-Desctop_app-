@@ -29,6 +29,7 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -74,6 +75,8 @@ public class AffichageMaterielsController implements Initializable {
     private TextField rech;
     @FXML
     private Button ex;
+    @FXML
+    private Button retour55;
    
     /**
      * Initializes the controller class.
@@ -200,6 +203,16 @@ public class AffichageMaterielsController implements Initializable {
          Csv csv=new Csv(mservice.afficher());
 
         
+    }
+
+    @FXML
+    private void retour55(ActionEvent event) throws IOException {
+             FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuPatissier.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
     }
 
    

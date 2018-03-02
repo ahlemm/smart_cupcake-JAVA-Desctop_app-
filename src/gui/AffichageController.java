@@ -110,14 +110,12 @@ public class AffichageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-           nom_pat.setPromptText("nom");
-       activite_pat.setPromptText("spetialite");
-      info_pat.setPromptText("info_pat");
-       
-adresse_pat.setPromptText("adresse");
-        
-           
+
+        nom_pat.setPromptText("nom");
+        activite_pat.setPromptText("spetialite");
+        info_pat.setPromptText("info_pat");
+
+        adresse_pat.setPromptText("adresse");
 
         getAllPatisseries();
         getAllPatisserieApprouved();
@@ -143,12 +141,7 @@ adresse_pat.setPromptText("adresse");
         listPat = sp.getAllPatisseries();
         listPatisserie.setItems(listPat);
         label3.setText("");
-        
-        
-         
-        
-        
-        
+
     }
 //	
 
@@ -187,9 +180,7 @@ adresse_pat.setPromptText("adresse");
 
     @FXML
     private void getAllPatisserieàEtudier() {
- 
-        
-        
+
         id_patisserie.setCellValueFactory(new PropertyValueFactory<>("id_patisserie"));
         nom_patisserie.setCellValueFactory(new PropertyValueFactory<>("nom_patisserie"));
         activite1.setCellValueFactory(new PropertyValueFactory<>("activite"));
@@ -221,9 +212,9 @@ adresse_pat.setPromptText("adresse");
             pauseTransition.setOnFinished(i -> label3.setText(""));
         } else {
             Alert alert = new Alert(AlertType.WARNING);
-            alert.setTitle("No Selection");
-            alert.setHeaderText("No Patisserie Selected");
-            alert.setContentText("Please select a patisserie in the table");
+              alert.setTitle("Pas de Selection");
+            alert.setHeaderText("vous n'avez pas sélectionner une Patisserie !");
+            alert.setContentText("veuillez sélectionner une patisserie dans la table");
             alert.showAndWait();
 
         }
@@ -237,11 +228,10 @@ adresse_pat.setPromptText("adresse");
 
         listPatisserie.setEditable(true);
         int selectedIndex = listPatisserie.getSelectionModel().getSelectedIndex();
- 
+
         Patisserie p = listPatisserie.getSelectionModel().getSelectedItem();
 
         if (selectedIndex >= 0) {
-           
 
             //   sp.ModifierPatisserie(p);
             if (nom_pat.getText().equals("") || activite_pat.getText().equals("") || info_pat.getText().equals("") || adresse_pat.getText().equals("")) {
@@ -369,7 +359,9 @@ adresse_pat.setPromptText("adresse");
 
         // x=Integer.parseInt(rechercher.getText())  ;      
         if (rechercher.getText().equals("")) {
-            label3.setText("veuillez selectionnez id(patisserie/patissier)");
+                label3.setText("veuillez donner le nom du(patisserie/patissier)");
+                     PauseTransition pauseTransition = new PauseTransition(Duration.seconds(3));
+            pauseTransition.setOnFinished(h -> label3.setText(""));
         } else {
             listPat = sp.getPatisseriesByidPatissier(Integer.parseInt(rechercher.getText()));
             listPatisserie.setItems(listPat);
@@ -419,7 +411,7 @@ adresse_pat.setPromptText("adresse");
 
         // x=Integer.parseInt(rechercher.getText())  ;             
         if (rechercher.getText().equals("")) {
-            label3.setText("veuillez selectionnez id(patisserie/patissier)");
+            label3.setText("veuillez donner le nom du(patisserie/patissier)");
         } else {
             listPat = sp.search_nom(rechercher.getText());
             listPatisserie.setItems(listPat);
@@ -429,7 +421,7 @@ adresse_pat.setPromptText("adresse");
 
     @FXML
     private void deconnectii(ActionEvent event) throws IOException {
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("Authentification.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Authentification.fxml"));
         Parent root = loader.load();
         Scene homePageScene = new Scene(root);
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

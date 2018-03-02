@@ -114,7 +114,7 @@ public class GmapsController implements Initializable, MapComponentInitializedLi
          com.lynden.gmapsfx.javascript.object.InfoWindowOptions infoWindowOptions1 = new com.lynden.gmapsfx.javascript.object.InfoWindowOptions();
         infoWindowOptions1.content("<h2>lella</h2>"
                                 + "Current Location: Safeway<br>"
-                                + "ETA: 45 minutes" );
+                                + "ETA: 30 minutes" );
 
         InfoWindow fredWilkeInfoWindow1 = new InfoWindow(infoWindowOptions1);
         fredWilkeInfoWindow1.open(map, lellaa);
@@ -132,7 +132,7 @@ public class GmapsController implements Initializable, MapComponentInitializedLi
         com.lynden.gmapsfx.javascript.object.InfoWindowOptions infoWindowOptions4 = new com.lynden.gmapsfx.javascript.object.InfoWindowOptions();
         infoWindowOptions4.content("<h2> monaliza</h2>"
                                 + "Current Location: Safeway<br>"
-                                + "ETA: 45 minutes" );
+                                + "ETA: 15 minutes" );
 
         InfoWindow fredWilkeInfoWindow4 = new InfoWindow(infoWindowOptions4);
         fredWilkeInfoWindow4.open(map,monalizaa );
@@ -140,7 +140,7 @@ public class GmapsController implements Initializable, MapComponentInitializedLi
         com.lynden.gmapsfx.javascript.object.InfoWindowOptions infoWindowOptions2 = new com.lynden.gmapsfx.javascript.object.InfoWindowOptions();
         infoWindowOptions2.content("<h2>chez_mounir</h2>"
                                 + "Current Location: Safeway<br>"
-                                + "ETA: 45 minutes" );
+                                + "ETA: 20 minutes" );
 
         InfoWindow fredWilkeInfoWindow2 = new InfoWindow(infoWindowOptions2);
         fredWilkeInfoWindow2.open(map, chezmounirr);

@@ -263,7 +263,7 @@ public class AjoutPatController implements Initializable {
         if (selectedFile1 != null) {
 
             view.getItems().add(selectedFile1.getName());
-            picture.setText(selectedFile1.getName());
+            picture.setText(selectedFile1.toURI().toString());
 
             Image image = new Image(selectedFile1.toURI().toString());
             im1.setImage(image);

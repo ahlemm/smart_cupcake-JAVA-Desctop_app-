@@ -33,6 +33,8 @@ public class MenuPatissierController implements Initializable {
     private Button promotions_page;
     @FXML
     private Button retourauthentif;
+    @FXML
+    private Button promotions_page1;
 
     /**
      * Initializes the controller class.
@@ -81,6 +83,17 @@ public class MenuPatissierController implements Initializable {
 
     @FXML
     private void promotions_page(ActionEvent event) throws IOException { FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLPromo.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
+    }
+
+    @FXML
+    private void materiel2(ActionEvent event) throws IOException {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AffichageMateriels.fxml"));
             Parent root = loader.load();
            Scene homePageScene=new Scene(root); 
            Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 

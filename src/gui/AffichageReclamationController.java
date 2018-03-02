@@ -25,6 +25,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -52,6 +53,8 @@ public class AffichageReclamationController implements Initializable {
     private Button ajouter;
     @FXML
     private Button Emailing;
+    @FXML
+    private Button retour6;
 
     /**
      * Initializes the controller class.
@@ -106,6 +109,17 @@ public class AffichageReclamationController implements Initializable {
             stage.show();
         
         
+    }
+
+    @FXML
+    private void retour6(ActionEvent event) throws IOException {
+        
+             FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuClient.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
     }
     }    
     

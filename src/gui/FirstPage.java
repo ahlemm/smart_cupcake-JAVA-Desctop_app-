@@ -20,7 +20,7 @@ public class FirstPage extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         
-            Parent root = FXMLLoader.load(getClass().getResource("Compte.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("patisserie.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setTitle("admin");
         primaryStage.setScene(scene);

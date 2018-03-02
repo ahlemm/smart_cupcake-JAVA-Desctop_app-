@@ -83,8 +83,6 @@ public class PatisserieController implements Initializable {
     @FXML
     private Label label5;
     @FXML
-    private AnchorPane browse1;
-    @FXML
     private Button voir_Map;
     @FXML
     private Button page_précédente1;
@@ -96,6 +94,8 @@ public class PatisserieController implements Initializable {
     private ImageView retour331;
     @FXML
     private ImageView retour332;
+    @FXML
+    private AnchorPane browse1;
 
     /**
      * Initializes the controller class.
@@ -113,11 +113,17 @@ public class PatisserieController implements Initializable {
         info_patisserie.setCellValueFactory(new PropertyValueFactory<>("info_patisserie"));
         adresse_patisserie.setCellValueFactory(new PropertyValueFactory<>("adresse_patisserie"));
         patissier.setCellValueFactory(new PropertyValueFactory<>("patissier"));
+      //  photo_pat.setCellValueFactory(new PropertyValueFactory<>("photo_patisserie"));
 
         ServicePatisserie sp = new ServicePatisserie();
         listPat = sp.getAllPatisserieApprouved();
         listPatisserie.setItems(listPat);
         label5.setText("");
+        
+    
+        
+        
+        
     }
 //
 //    private void searchPatisserie(ActionEvent event) {
@@ -191,6 +197,20 @@ public class PatisserieController implements Initializable {
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(homePageScene);
         appStage.show();
+    }
+
+    private void afficher_photo(ActionEvent event) {
+        
+            listPatisserie.setEditable(true);
+        int selectedIndex = listPatisserie.getSelectionModel().getSelectedIndex();
+
+        Patisserie p = (Patisserie) listPatisserie.getSelectionModel().getSelectedItem();
+                             Label iconLabel = new Label();
+                             ImageView imv=new ImageView(new Image(p.getPhoto_patisserie()));
+                             imv.setFitHeight(50);
+                             imv.setFitWidth(50);
+                            
+   iconLabel.setGraphic(imv);
     }
 
  

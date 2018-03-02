@@ -26,7 +26,6 @@ import javafx.stage.Stage;
  */
 public class MenuClientController implements Initializable {
 
-    @FXML
     private Label menu;
     @FXML
     private Button patisserie_client;
@@ -36,6 +35,12 @@ public class MenuClientController implements Initializable {
     private Button recetteClient;
     @FXML
     private Button inscriForma;
+    @FXML
+    private Button reclam;
+    @FXML
+    private Button retour88;
+    @FXML
+    private Button consulterMonCompte2;
 
     /**
      * Initializes the controller class.
@@ -61,7 +66,6 @@ public class MenuClientController implements Initializable {
         
     }
 
-    @FXML
     private void retour(ActionEvent event) throws IOException {
         Stage stage = (Stage) menu.getScene().getWindow();
         stage.close();
@@ -73,7 +77,6 @@ public class MenuClientController implements Initializable {
         window.show();
     }
 
-    @FXML
     private void consulterMonCompte(ActionEvent event) throws IOException {
          Stage stage = (Stage) menu.getScene().getWindow();
         stage.close();
@@ -108,7 +111,7 @@ public class MenuClientController implements Initializable {
     }
 
     @FXML
-    private void promotion_page(ActionEvent event) throws IOException { FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLPromotion.fxml"));
+    private void promotion_page(ActionEvent event) throws IOException { FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLPromo.fxml"));
             Parent root = loader.load();
            Scene homePageScene=new Scene(root); 
            Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
@@ -130,6 +133,36 @@ public class MenuClientController implements Initializable {
     @FXML
     private void inscriForma(ActionEvent event) throws IOException {
          FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLInscri.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
+    }
+
+    @FXML
+    private void reclam(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("AffichageReclamation.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
+    }
+
+    @FXML
+    private void consulterMonCompte2(ActionEvent event) throws IOException {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("Compte.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
+    }
+
+    @FXML
+    private void retour88(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("Authentification.fxml"));
             Parent root = loader.load();
            Scene homePageScene=new Scene(root); 
            Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 

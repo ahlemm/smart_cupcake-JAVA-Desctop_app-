@@ -61,7 +61,7 @@
                   <Font name="Arial Bold" size="15.0" />
                </font></Button>
          </children></Pane>
-      <Button layoutX="554.0" layoutY="27.0" mnemonicParsing="false" onAction="#deconnecter" prefHeight="35.0" prefWidth="131.0" style="-fx-background-color: #cd5c5c;" text="deconecter" textFill="#fcfae1">
+      <Button layoutX="554.0" layoutY="27.0" mnemonicParsing="false" onAction="#deconnecter" prefHeight="35.0" prefWidth="131.0" style="-fx-background-color: #cd5c5c;" text="deconnecter" textFill="#fcfae1">
          <font>
             <Font name="Arial Bold" size="17.0" />
          </font></Button>

@@ -13,7 +13,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="browse1" prefHeight="569.0" prefWidth="759.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PatisserieController">
    <children>
-      <TableView fx:id="listPatisserie" layoutX="61.0" layoutY="96.0" prefHeight="191.0" prefWidth="344.0" style="-fx-background-insets: #750962;">
+      <TableView fx:id="listPatisserie" layoutX="24.0" layoutY="93.0" prefHeight="186.0" prefWidth="346.0" style="-fx-background-insets: #750962;">
         <columns>
           <TableColumn fx:id="id_patisserie" prefWidth="75.0" text="id" visible="false" />
           <TableColumn fx:id="nom_patisserie" prefWidth="75.0" text="nom" />
@@ -71,7 +71,7 @@
             <Image url="@../../../../../Desktop/gt1.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="voir_Map" layoutX="429.0" layoutY="176.0" mnemonicParsing="false" onAction="#voir_map" text="voir Map" textFill="#846a9e" />
+      <Button fx:id="voir_Map" layoutX="481.0" layoutY="176.0" mnemonicParsing="false" onAction="#voir_map" text="voir Map" textFill="#846a9e" />
       <Button fx:id="page_précédente1" layoutX="34.0" layoutY="513.0" mnemonicParsing="false" onAction="#page_précédente1" prefHeight="25.0" prefWidth="148.0" text="page précédente" textFill="#5d8a53" />
       <ImageView fx:id="retour33" fitHeight="33.0" fitWidth="22.0" layoutX="41.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
          <image>

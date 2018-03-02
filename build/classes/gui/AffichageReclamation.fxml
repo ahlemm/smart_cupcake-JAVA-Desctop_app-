@@ -17,5 +17,6 @@
       </TableView>
       <Button fx:id="ajouter" layoutX="445.0" layoutY="420.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="23.0" prefWidth="55.0" text="Ajouter" />
       <Button fx:id="Emailing" layoutX="340.0" layoutY="420.0" mnemonicParsing="false" onAction="#Emailing" prefHeight="25.0" prefWidth="55.0" text="Email" />
+      <Button fx:id="retour6" layoutX="29.0" layoutY="452.0" mnemonicParsing="false" onAction="#retour6" prefHeight="22.0" prefWidth="89.0" text="retour" textFill="#5d8a53" />
    </children>
 </AnchorPane>

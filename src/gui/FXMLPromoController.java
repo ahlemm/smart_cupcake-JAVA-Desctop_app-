@@ -8,6 +8,7 @@ import utile.Config;
 import entite.Formation;
 import entite.Produit;
 import entite.Promotion;
+import java.io.IOException;
 
 import service.ServiceInscription;
 import service.ServiceProduit;
@@ -34,7 +35,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -51,6 +56,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 /**
@@ -99,6 +105,8 @@ public class FXMLPromoController implements Initializable {
     private Pane pane;
     @FXML
     private Label nouveau_prix;
+    @FXML
+    private Button retour7;
     
     private List<Produit> findProduit() throws SQLException {
         return ServiceProduit.afficher();
@@ -306,7 +314,18 @@ private void supprimer(int id_promotion) {
         } catch (Exception ex) {
             Logger.getLogger(FXMLCrudController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }  }
+    }
+
+    @FXML
+    private void retour7(ActionEvent event) throws IOException {
+             FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuClient.fxml"));
+            Parent root = loader.load();
+           Scene homePageScene=new Scene(root); 
+           Stage appStage =(Stage) ((Node) event.getSource()).getScene().getWindow(); 
+           appStage.setScene(homePageScene); 
+           appStage.show();
+    }
+ }
 
     
 

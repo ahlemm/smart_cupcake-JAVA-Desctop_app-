@@ -10,12 +10,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="604.0" prefWidth="723.0" style="-fx-background-color: #FCFAE1;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuAdminController">
    <children>
-      <Button layoutX="276.0" layoutY="501.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #cd5c5c;" text="Retour" textFill="#fcfae1">
+      <Button fx:id="retour_1" layoutX="276.0" layoutY="501.0" mnemonicParsing="false" onAction="#retour_1" prefHeight="25.0" prefWidth="136.0" style="-fx-background-color: #cd5c5c;" text="Retour" textFill="#fcfae1">
          <font>
             <Font name="Arial Bold" size="21.0" />
          </font>
       </Button>
-      <Button layoutX="192.0" layoutY="433.0" mnemonicParsing="false" onAction="#consulterMonCompte" prefHeight="39.0" prefWidth="315.0" style="-fx-background-color: #cd5c5c;" text="Consulter mon compte" textFill="#fcfae1">
+      <Button fx:id="consulterMonCompte" layoutX="192.0" layoutY="433.0" mnemonicParsing="false" onAction="#consulterMonCompte" prefHeight="39.0" prefWidth="315.0" style="-fx-background-color: #cd5c5c;" text="Consulter mon compte" textFill="#fcfae1">
          <font>
             <Font name="Arial Bold" size="21.0" />
          </font>
